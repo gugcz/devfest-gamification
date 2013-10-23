@@ -1,4 +1,4 @@
-package cz.destil.cdhmaster;
+package cz.destil.cdhmaster.activity;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+import cz.destil.cdhmaster.R;
+import cz.destil.cdhmaster.fragment.LoginFragment;
+
 public class LoginActivity extends Activity {
 
     @Override
@@ -20,24 +23,8 @@ public class LoginActivity extends Activity {
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, new LoginFragment())
                     .commit();
-        }
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_login, container, false);
-            return rootView;
         }
     }
 
