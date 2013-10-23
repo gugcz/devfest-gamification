@@ -13,6 +13,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.Views;
 import cz.destil.cdhmaster.R;
+import cz.destil.cdhmaster.api.Achievements;
 import cz.destil.cdhmaster.api.Api;
 import cz.destil.cdhmaster.api.Login;
 import cz.destil.cdhmaster.util.DebugLog;
@@ -46,12 +47,27 @@ public class LoginFragment extends Fragment {
         Api.get().create(Login.class).verify(new Login.Request(password), new Callback<Login.Response>() {
             @Override
             public void success(Login.Response loginResponse, Response response) {
-                DebugLog.d("success");
+                DebugLog.d("login success");
+                getAchievements();
             }
 
             @Override
             public void failure(RetrofitError retrofitError) {
                 vPassword.setError(Api.getErrorString(retrofitError));
+            }
+        });
+    }
+
+    private void getAchievements() {
+        Api.get().create(Achievements.class).get(new Callback<Achievements.Response>() {
+            @Override
+            public void success(Achievements.Response response, Response response2) {
+                DebugLog.d(response.items.toString());
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
             }
         });
     }
