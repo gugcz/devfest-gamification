@@ -99,6 +99,7 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
                              ORDER BY achievements_unlocked, unlocked_last) result
                          WHERE gplus_id = %i
                          ', $gId);
+
         $response = $result->fetch();
         send_json_success($response);
         exit;

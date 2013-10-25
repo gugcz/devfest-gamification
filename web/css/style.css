@@ -6014,8 +6014,8 @@ section .callouts .facebook iframe {
 }
 
 .navbar .nav li.dropdown .dropdown-toggle .caret, .navbar .nav li.dropdown.open .caret {
-    border-top-color: #0081c6;
-    border-bottom-color: #0081c6;
+    border-top-color: #fff;
+    border-bottom-color: #fff;
     opacity: 1
 }
 
