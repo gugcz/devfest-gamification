@@ -4,3 +4,4 @@ RewriteEngine on
 # URL rewriting rules
 RewriteRule ^(leaderboard)$ index.php [L,E]
 RewriteRule ^(achievements)$ achievements.php [L,E]
+RewriteRule ^(promo)$ promo.php [L,E]
