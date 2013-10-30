@@ -1,5 +1,6 @@
 package cz.destil.cdhmaster.api;
 
+import java.io.Serializable;
 import java.util.List;
 
 import retrofit.Callback;
