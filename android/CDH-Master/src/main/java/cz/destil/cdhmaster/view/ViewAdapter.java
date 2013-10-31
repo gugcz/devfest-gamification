@@ -28,6 +28,7 @@ public class ViewAdapter<T> extends ArrayAdapter<T> {
         return mList.size();
     }
 
+    @Override
     public T getItem(int position) {
         return mList.get(position);
     }
