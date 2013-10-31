@@ -96,7 +96,7 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
                          FROM (
                              SELECT *, @curRank := @curRank + 1 AS leaderboard_position
                              FROM leaderboard l, (SELECT @curRank := 0) r
-                             ORDER BY achievements_unlocked, unlocked_last) result
+                             ORDER BY achievements_unlocked DESC, unlocked_last ASC) result
                          WHERE gplus_id = %i
                          ', $gId);
 

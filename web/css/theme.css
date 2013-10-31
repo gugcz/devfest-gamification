@@ -1,0 +1,97 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+body .navbar {
+    min-height: 40px;
+}
+
+.navbar .navbar-brand {
+    padding: 10px;
+    color: #ffffff;
+}
+
+.nav > li > a.g-signin {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.profile-photo {
+    width: 40px;
+}
+
+.leaderboard > tbody > tr > td {
+    vertical-align: middle;
+}
+
+footer {
+    border-top: 1px solid #CECECE;
+    background-color: #EFEFEF;
+    color: #333;
+    font-size: 13px;
+    padding: 15px 0
+}
+
+footer ul {
+    list-style: none;
+    margin: 0
+}
+
+footer p {
+    font-size: 12px;
+    margin: 0
+}
+
+footer .copyright {
+    text-align: center
+}
+
+/** Panel BLUE
+*   a = #85c9ed tmavsi
+*   b = #b0dcf4 svetlejsi
+*   c = #0081c6 text
+*/
+.panel-blue {
+    border-color: #85c9ed;  /*a*/
+}
+
+.panel-blue > .panel-heading {
+    background-image: -webkit-gradient(linear,left 0,left 100%,from(#b0dcf4),to(#85c9ed));  /*b  a*/
+    background-image: -webkit-linear-gradient(top,#b0dcf4,0%,#85c9ed,100%); /*b  a*/
+    background-image: -moz-linear-gradient(top,#b0dcf4 0,#85c9ed 100%); /*b  a*/
+    background-image: linear-gradient(to bottom,#b0dcf4 0,#85c9ed 100%);    /*b  a*/
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb0dcf4',endColorstr='#ff85c9ed',GradientType=0);   /*ffb  ffa*/
+
+    color: #000; /*c*/
+    background-color: #b0dcf4;  /*b*/
+    border-color: #85c9ed;  /*a*/
+}
+
+/** Panel RED
+*   a = #db928d tmavsi
+*   b = #efaaa5 svetlejsi
+*   c = #d94a3f text
+*/
+.panel-red {
+    border-color: #db928d;  /*a*/
+}
+
+.panel-red > .panel-heading {
+    background-image: -webkit-gradient(linear,left 0,left 100%,from(#efaaa5),to(#db928d));  /*b  a*/
+    background-image: -webkit-linear-gradient(top,#efaaa5,0%,#db928d,100%); /*b  a*/
+    background-image: -moz-linear-gradient(top,#efaaa5 0,#db928d 100%); /*b  a*/
+    background-image: linear-gradient(to bottom,#efaaa5 0,#db928d 100%);    /*b  a*/
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffefaaa5',endColorstr='#ffdb928d',GradientType=0);   /*ffb  ffa*/
+
+    color: #000; /*c*/
+    background-color: #efaaa5;  /*b*/
+    border-color: #db928d;  /*a*/
+}

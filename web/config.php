@@ -30,7 +30,6 @@ require_once 'libs/GoogleAPI/contrib/Google_PlusService.php';
 require_once 'libs/GoogleAPI/contrib/Google_Oauth2Service.php';
 
 
-
 $client = new Google_Client();
 $client->setApplicationName($nastaveni['App_name']);
 // Visit https://code.google.com/apis/console to generate your
@@ -66,4 +65,21 @@ function send_json_error($message)
     header('HTTP/1.0 400 BAD REQUEST', true, 400);
     header('Content-type: application/json');
     echo $out;
+}
+
+function a($cislo, $s1 = "bod", $s2 = "body", $s3 = "bodů")
+{
+    switch ($cislo) {
+        case 1:
+            $s = $s1;
+            break;
+        case 2:
+        case 3:
+        case 4:
+            $s = $s2;
+            break;
+        default:
+            $s = $s3;
+    }
+    return $cislo . " " . $s;
 }

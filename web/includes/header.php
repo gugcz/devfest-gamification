@@ -18,42 +18,47 @@ if (isset($_SESSION['token'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="cs" itemscope itemtype="http://schema.org/Event" xmlns:fb="http://ogp.me/ns/fb#">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevFest Quest">
+    <meta name="author" content="Jirka Korejtko">
 
-    <title>DevFest Praha 2013 - Game</title>
-    <meta itemprop="name" content="DevFest Praha 2013 - Game">
-    <meta itemprop="description" content="Herní portál DevFestové hry 2013">
+    <title>DevFest Quest</title>
 
-    <link rel="stylesheet" href="/css/style.css" media="screen, projection">
-    <link rel="stylesheet" href="/css/print.css" media="print">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection"/>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
     <![endif]-->
+</head>
 
 <body>
 <nav>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
+    <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <!-- required for collapseable bar -->
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/leaderboard" title="DevFest Game">
+                    DevFest Quest
                 </a>
-                <a class="brand" href="/" title="DevFest Game">
-                    DevFest Game
-                </a>
-
-                <div class="nav-collapse">
-                    <ul class="nav">
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
                         <li>
                             <a href="/leaderboard">LeaderBoard</a>
                         </li>
@@ -97,5 +102,7 @@ if (isset($_SESSION['token'])) {
                 <!--/.nav-collapse -->
             </div>
         </div>
-    </div>
 </nav>
+<div class="container">
+<img src="images/header.png" class="img-responsive" style="margin: auto;" alt="DevFest Quest - Secure Heuristic Encryption Megakey">
+</div>
