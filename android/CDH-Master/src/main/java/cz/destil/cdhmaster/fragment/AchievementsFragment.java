@@ -1,19 +1,20 @@
 package cz.destil.cdhmaster.fragment;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import cz.destil.cdhmaster.App;
+import butterknife.OnClick;
 import cz.destil.cdhmaster.R;
 import cz.destil.cdhmaster.api.Achievements;
 import cz.destil.cdhmaster.api.Api;
 import cz.destil.cdhmaster.data.Preferences;
 import cz.destil.cdhmaster.util.DebugLog;
 import cz.destil.cdhmaster.util.Util;
-import cz.destil.cdhmaster.view.AchievementView;
 import cz.destil.cdhmaster.view.ViewAdapter;
 import retrofit.Callback;
 import retrofit.RetrofitError;

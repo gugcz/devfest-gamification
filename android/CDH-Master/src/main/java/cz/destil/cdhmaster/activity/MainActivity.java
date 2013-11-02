@@ -1,7 +1,12 @@
 package cz.destil.cdhmaster.activity;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.content.Intent;
+import android.nfc.NdefMessage;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.os.Parcelable;
 
 import java.io.Serializable;
 
@@ -51,5 +56,18 @@ public class MainActivity extends Activity {
             fragment.setArguments(bundle);
         }
         getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        Parcelable[] rawMsgs = intent.getParcelableArrayExtra(
+                NfcAdapter.EXTRA_NDEF_MESSAGES);
+        if (rawMsgs != null && rawMsgs.length > 0) {
+            NdefMessage msg = (NdefMessage) rawMsgs[0];
+            Fragment currentFragment = getFragmentManager().findFragmentById(R.id.container);
+            if (currentFragment instanceof UnlockFragment) {
+                ((UnlockFragment) currentFragment).processTag(new String(msg.getRecords()[0].getPayload()));
+            }
+        }
     }
 }

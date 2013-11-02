@@ -9,7 +9,7 @@ import retrofit.RetrofitError;
  */
 public class Api {
 
-    public static final String URL = "http://game.devfest.cz/api";
+    public static final String URL = "http://quest.devfest.cz/api";
 
     public static RestAdapter get() {
         return new RestAdapter.Builder().setServer(URL).setLogLevel(RestAdapter.LogLevel.BASIC).setLog(new RestAdapter.Log() {
