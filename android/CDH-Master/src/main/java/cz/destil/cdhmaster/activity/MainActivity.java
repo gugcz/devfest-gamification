@@ -16,6 +16,7 @@ import cz.destil.cdhmaster.fragment.AchievementsFragment;
 import cz.destil.cdhmaster.fragment.AppFragment;
 import cz.destil.cdhmaster.fragment.LoginFragment;
 import cz.destil.cdhmaster.fragment.UnlockFragment;
+import cz.destil.cdhmaster.util.DebugLog;
 
 public class MainActivity extends Activity {
 

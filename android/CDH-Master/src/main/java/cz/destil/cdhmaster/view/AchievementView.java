@@ -46,6 +46,5 @@ public class AchievementView extends AdapterView<Achievements.Achievement> {
         Picasso.with(App.get()).load(achievement.nice_image).into(vPicture);
         vName.setText(achievement.name);
         vLocation.setText(achievement.location);
-        DebugLog.d(achievement.name);
     }
 }

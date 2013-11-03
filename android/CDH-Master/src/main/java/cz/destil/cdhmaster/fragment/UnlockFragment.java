@@ -49,7 +49,6 @@ public class UnlockFragment extends AppFragment {
     @Override
     public void setupViews(View parentView) {
         Achievements.Achievement achievement = Preferences.getAchievement();
-        DebugLog.d(achievement.basic_image);
         Picasso.with(App.get()).load(achievement.basic_image).into(vBasicImage);
         vName.setText(achievement.name);
         vLocation.setText(achievement.location);
@@ -58,10 +57,6 @@ public class UnlockFragment extends AppFragment {
     @Override
     public void onResume() {
         super.onResume();
-        setupNfc();
-    }
-
-    private void setupNfc() {
         mNfcAdapter = NfcAdapter.getDefaultAdapter(getActivity());
         if (mNfcAdapter == null) {
             vNfcStatus.setText("NFC not enabled, enable it or use QR code.");
@@ -69,24 +64,17 @@ public class UnlockFragment extends AppFragment {
             vNfcStatus.setText("NFC ready! You can tap attendee badge to unlock achievement.");
             PendingIntent pendingIntent = PendingIntent.getActivity(
                     getActivity(), 0, new Intent(getActivity(), MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
-            IntentFilter ndef = new IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED);
-            try {
-                ndef.addDataType("*/*");    /* Handles all MIME based dispatches.
-                                       You should specify only the ones that you need. */
-            } catch (IntentFilter.MalformedMimeTypeException e) {
-                throw new RuntimeException("fail", e);
-            }
-            IntentFilter[] intentFilters = new IntentFilter[]{ndef};
-            mNfcAdapter.enableForegroundDispatch(getActivity(), pendingIntent, intentFilters, null);
+            mNfcAdapter.enableForegroundDispatch(getActivity(), pendingIntent, null, null);
         }
     }
 
     @Override
-    public void onDestroyView() {
+    public void onPause() {
         if (mNfcAdapter!=null) {
             mNfcAdapter.disableForegroundDispatch(getActivity());
+            vNfcStatus.setText("NFC not enabled, enable it or use QR code.");
         }
-        super.onDestroyView();
+        super.onPause();
     }
 
     @Override
@@ -120,7 +108,6 @@ public class UnlockFragment extends AppFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        DebugLog.d("onActivityResult");
         if (requestCode == 0) {
             if (resultCode == Activity.RESULT_OK) {
                 String contents = data.getStringExtra("SCAN_RESULT");
@@ -142,11 +129,9 @@ public class UnlockFragment extends AppFragment {
         String[] parts = url.split("/");
         for (int i = parts.length - 1; i >= 0; i--) {
             String part = parts[i];
-            DebugLog.d("part=" + part);
             try {
                 return new BigInteger(part);
             } catch (NumberFormatException e) {
-                DebugLog.e(e.toString());
                 // continue
             }
         }

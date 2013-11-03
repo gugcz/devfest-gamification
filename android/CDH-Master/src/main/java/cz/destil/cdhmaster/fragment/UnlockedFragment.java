@@ -41,7 +41,6 @@ public class UnlockedFragment extends AppFragment {
     public void setupViews(View parentView) {
         Achievements.Achievement achievement = Preferences.getAchievement();
         BigInteger gplusId = (BigInteger) getData();
-        DebugLog.d(achievement.nice_image);
         Picasso.with(App.get()).load(achievement.nice_image).into(vNiceImage);
         Picasso.with(App.get()).load("https://plus.google.com/s2/photos/profile/" + gplusId + "?sz=300").into(vProfilePicture);
         vName.setText(achievement.name);
@@ -52,4 +51,5 @@ public class UnlockedFragment extends AppFragment {
     void unlockNext() {
         replaceFragment(UnlockFragment.class);
     }
+
 }

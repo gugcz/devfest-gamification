@@ -39,7 +39,6 @@ public class AchievementsFragment extends AppFragment {
         Api.get().create(Achievements.class).get(new Callback<Achievements.Response>() {
             @Override
             public void success(Achievements.Response response, Response response2) {
-                DebugLog.d(response.items.toString());
                 final ViewAdapter<Achievements.Achievement> adapter = new ViewAdapter<Achievements.Achievement>(response.items, R.layout.view_achievement);
                 vListView.setAdapter(adapter);
                 vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
