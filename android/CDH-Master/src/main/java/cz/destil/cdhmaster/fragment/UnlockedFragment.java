@@ -1,5 +1,6 @@
 package cz.destil.cdhmaster.fragment;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +15,7 @@ import cz.destil.cdhmaster.App;
 import cz.destil.cdhmaster.R;
 import cz.destil.cdhmaster.api.Achievements;
 import cz.destil.cdhmaster.data.Preferences;
-import cz.destil.cdhmaster.util.DebugLog;
+import cz.destil.cdhmaster.service.UnlockService;
 
 /**
  * Created by Destil on 30.10.13.
@@ -45,6 +46,13 @@ public class UnlockedFragment extends AppFragment {
         Picasso.with(App.get()).load("https://plus.google.com/s2/photos/profile/" + gplusId + "?sz=300").into(vProfilePicture);
         vName.setText(achievement.name);
         vCongratzText.setText(achievement.congrats_text);
+        unlockAchievement(gplusId);
+    }
+
+    private void unlockAchievement(BigInteger gplusId) {
+        Intent intent = new Intent(getActivity(), UnlockService.class);
+        intent.putExtra(UnlockService.EXTRA_GPLUS_ID, gplusId);
+        getActivity().startService(intent);
     }
 
     @OnClick(R.id.unlock_next)

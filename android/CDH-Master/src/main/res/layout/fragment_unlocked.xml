@@ -15,8 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/nice_image"
@@ -44,6 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -61,19 +63,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:padding="10dp"
             android:text="Achievement will be unlocked in background"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:padding="10dp" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="If you are offline, don't worry - it will be unlocked when you get back online."
-            android:id="@+id/textView"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:padding="10dp"
-            android:gravity="center" />
+            android:text="If you are offline, don't worry - it will be unlocked when you get back online."
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <Button
             android:id="@+id/unlock_next"

@@ -119,7 +119,7 @@ public class UnlockFragment extends AppFragment {
     public void processTag(String contents) {
         BigInteger gplusId = parseGplusId(contents);
         if (gplusId.equals(BigInteger.ZERO)) {
-            Util.toast("Invalid G+ ID");
+            Util.toastNegative("Invalid G+ ID");
         } else {
             replaceFragment(UnlockedFragment.class, gplusId);
         }

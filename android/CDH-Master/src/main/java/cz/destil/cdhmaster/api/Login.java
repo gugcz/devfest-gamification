@@ -8,7 +8,7 @@ import retrofit.http.POST;
  * Created by Destil on 23.10.13.
  */
 public interface Login {
-    @POST("/login.php")
+    @POST("/login")
     void verify(@Body Request request, Callback<Response> callback);
 
     public static class Request {

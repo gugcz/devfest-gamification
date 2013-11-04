@@ -52,7 +52,7 @@ public class AchievementsFragment extends AppFragment {
 
             @Override
             public void failure(RetrofitError error) {
-                Util.toast(Api.getErrorString(error));
+                Util.toastNegative(Api.getErrorString(error));
             }
         });
     }

@@ -6,13 +6,14 @@ import java.util.List;
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.GET;
+import retrofit.http.POST;
 
 /**
  * Created by Destil on 23.10.13.
  */
 public interface Achievements {
 
-    @GET("/achievements.php")
+    @GET("/achievements")
     void get(Callback<Response> callback);
 
     public static class Response {
