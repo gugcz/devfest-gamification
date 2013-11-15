@@ -36,17 +36,25 @@ public class LoginFragment extends AppFragment {
     @OnClick(R.id.verify)
     void verify() {
         final String password = vPassword.getText().toString();
+        showProgress();
         Api.get().create(Login.class).verify(new Login.Request(password), new Callback<Login.Response>() {
             @Override
             public void success(Login.Response loginResponse, Response response) {
+                hideProgress();
                 Preferences.savePassword(password);
                 replaceFragment(AchievementsFragment.class);
             }
 
             @Override
             public void failure(RetrofitError retrofitError) {
+                hideProgress();
                 vPassword.setError(Api.getErrorString(retrofitError));
             }
         });
+    }
+
+    @Override
+    public int getMenuResource() {
+        return R.menu.login;
     }
 }

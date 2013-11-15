@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import cz.destil.cdhmaster.util.DebugLog;
 import cz.destil.cdhmaster.util.Util;
 
 /**
@@ -13,8 +14,9 @@ public class ConnectivityReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Util.isNetworkAvailable()) {
+            DebugLog.i("Connectivity up");
             UnlockService unlockService = UnlockService.get();
-            if (unlockService!=null && !unlockService.isStackEmpty()) {
+            if (unlockService != null && !unlockService.isStackEmpty() && !unlockService.isUnlockingInProgress()) {
                 unlockService.unlockNext();
             }
         }

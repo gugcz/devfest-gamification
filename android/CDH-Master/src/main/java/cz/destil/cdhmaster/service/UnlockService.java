@@ -8,20 +8,20 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
+import android.util.Pair;
 import android.util.Patterns;
 
 import java.math.BigInteger;
 import java.util.Stack;
-import java.util.Timer;
 import java.util.regex.Pattern;
 
 import cz.destil.cdhmaster.App;
 import cz.destil.cdhmaster.R;
 import cz.destil.cdhmaster.activity.MainActivity;
+import cz.destil.cdhmaster.api.Achievements;
 import cz.destil.cdhmaster.api.Api;
 import cz.destil.cdhmaster.api.Unlock;
 import cz.destil.cdhmaster.data.Preferences;
-import cz.destil.cdhmaster.util.DebugLog;
 import cz.destil.cdhmaster.util.Util;
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -34,8 +34,8 @@ public class UnlockService extends Service {
 
     public static final String EXTRA_GPLUS_ID = "gplusid";
     private static UnlockService sInstance;
-    private Stack<BigInteger> mGlusIdsToUnlock;
-    private Timer mTimer;
+    private Stack<Pair<BigInteger, Integer>> mToUnlock;
+    private boolean mUnlockingInProgress = false;
 
     public static UnlockService get() {
         return sInstance;
@@ -44,20 +44,19 @@ public class UnlockService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mGlusIdsToUnlock = new Stack<BigInteger>();
-        mTimer = new Timer();
+        mToUnlock = new Stack<Pair<BigInteger, Integer>>();
         sInstance = this;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         BigInteger gplusId = (BigInteger) intent.getSerializableExtra(EXTRA_GPLUS_ID);
-        if (gplusId != null && !mGlusIdsToUnlock.contains(gplusId)) {
+        if (gplusId != null) {
             Intent notificationIntent = new Intent(App.get(), MainActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 42, notificationIntent, 0);
             Notification notification = new NotificationCompat.Builder(App.get()).setOngoing(true).setTicker("Unlocking achievement...").setSmallIcon(R.drawable.ic_launcher).setContentTitle("Waiting for connection").setContentText("Achievements will be unlocked when you get online").setContentIntent(pendingIntent).build();
             startForeground(42, notification);
-            mGlusIdsToUnlock.push(gplusId);
+            mToUnlock.push(new Pair<BigInteger, Integer>(gplusId, Preferences.getAchievement().id));
             unlockNext();
         }
         return START_STICKY;
@@ -70,24 +69,33 @@ public class UnlockService extends Service {
             return;
         }
         if (Util.isNetworkAvailable()) {
-            BigInteger gplusId = mGlusIdsToUnlock.peek();
-            int achievementId = Preferences.getAchievement().id;
+            final Pair<BigInteger, Integer> toUnlock = mToUnlock.peek();
+            final BigInteger gplusId = toUnlock.first;
+            int achievementId = toUnlock.second;
+            final String achievementName = Preferences.getAchievementNameById(achievementId);
             String password = Preferences.getPassword();
             String orgEmail = getUserEmail();
+            mUnlockingInProgress = true;
             Api.get().create(Unlock.class).unlock(new Unlock.Request(gplusId, achievementId, password, orgEmail), new Callback<Unlock.Response>() {
                 @Override
                 public void success(Unlock.Response response, Response retrofitResponse) {
-                    Util.toastPositive("Achievement unlocked! (" + response.achievements_unlocked + " unlocked, #" + response.leaderboard_position + " in leaderboard)");
-                    mGlusIdsToUnlock.pop();
+                    String text = "Achievement unlocked! (" + response.achievements_unlocked + " unlocked, #" + response.leaderboard_position + " in leaderboard)";
+                    Preferences.addHistory(achievementName+" -> "+response.user_name, text);
+                    Util.toastPositive(text);
+                    mToUnlock.pop();
+                    mUnlockingInProgress = false;
                     unlockNext();
                 }
 
                 @Override
                 public void failure(RetrofitError error) {
-                    Util.toastNegative("Achievement unlock failed: " + Api.getErrorString(error));
-                    if (!error.isNetworkError()) {
-                        mGlusIdsToUnlock.pop();
+                    String text = "Achievement unlock failed: " + Api.getErrorString(error);
+                    Preferences.addHistory(achievementName+" -> "+gplusId, text);
+                    Util.toastNegative(text);
+                    if (Util.isNetworkAvailable()) {
+                        mToUnlock.pop();
                     }
+                    mUnlockingInProgress = false;
                     unlockNext();
                 }
             });
@@ -111,6 +119,10 @@ public class UnlockService extends Service {
     }
 
     public boolean isStackEmpty() {
-        return mGlusIdsToUnlock.empty();
+        return mToUnlock.empty();
+    }
+
+    public boolean isUnlockingInProgress() {
+        return mUnlockingInProgress;
     }
 }

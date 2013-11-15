@@ -1,8 +1,11 @@
 package cz.destil.cdhmaster.util;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,5 +38,11 @@ public class Util {
                 = (ConnectivityManager) App.get().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    public static void openBrowser(Activity activity, String url) {
+        Uri uri = Uri.parse(url);
+        Intent marketIntent = new Intent(Intent.ACTION_VIEW, uri);
+        activity.startActivity(marketIntent);
     }
 }

@@ -46,6 +46,11 @@ public class UnlockedFragment extends AppFragment {
         Picasso.with(App.get()).load("https://plus.google.com/s2/photos/profile/" + gplusId + "?sz=200").into(vProfilePicture);
         vName.setText(achievement.name);
         vCongratzText.setText(achievement.congrats_text);
+    }
+
+    @Override
+    public void setupViewsFirstRotation(View parentView) {
+        BigInteger gplusId = (BigInteger) getData();
         unlockAchievement(gplusId);
     }
 
@@ -60,4 +65,8 @@ public class UnlockedFragment extends AppFragment {
         replaceFragment(UnlockFragment.class);
     }
 
+    @Override
+    public int getMenuResource() {
+        return R.menu.unlock;
+    }
 }

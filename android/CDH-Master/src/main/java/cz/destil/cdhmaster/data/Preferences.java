@@ -4,6 +4,11 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import cz.destil.cdhmaster.App;
 import cz.destil.cdhmaster.api.Achievements;
@@ -44,5 +49,45 @@ public class Preferences {
 
     private static SharedPreferences get() {
         return PreferenceManager.getDefaultSharedPreferences(App.get());
+    }
+
+    public static void saveAchievementList(List<Achievements.Achievement> achievements) {
+        String json = new Gson().toJson(achievements);
+        get().edit().putString("ACHIEVEMENTS", json).commit();
+    }
+
+    public static List<Achievements.Achievement> getAchievements() {
+        String json = get().getString("ACHIEVEMENTS", null);
+        return new Gson().fromJson(json, new TypeToken<List<Achievements.Achievement>>() {
+        }.getType());
+    }
+
+    public static boolean areAchievementsOffline() {
+        return get().contains("ACHIEVEMENTS");
+    }
+
+    public static void addHistory(String firstLine, String secondLine) {
+        List<String> history = getHistory();
+        history.add(firstLine + "\n" + secondLine + "\n" + new Date());
+        String json = new Gson().toJson(history);
+        get().edit().putString("HISTORY", json).commit();
+    }
+
+    public static List<String> getHistory() {
+        String json = get().getString("HISTORY", null);
+        if (json == null) {
+            return new ArrayList<String>();
+        }
+        return new Gson().fromJson(json, new TypeToken<List<String>>() {
+        }.getType());
+    }
+
+    public static String getAchievementNameById(int achievementId) {
+        for (Achievements.Achievement achievement : getAchievements()) {
+            if (achievement.id == achievementId) {
+                return achievement.name;
+            }
+        }
+        return null;
     }
 }

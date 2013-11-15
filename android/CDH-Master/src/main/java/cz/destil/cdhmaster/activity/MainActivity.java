@@ -2,11 +2,13 @@ package cz.destil.cdhmaster.activity;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.Window;
 
 import java.io.Serializable;
 
@@ -14,14 +16,15 @@ import cz.destil.cdhmaster.R;
 import cz.destil.cdhmaster.data.Preferences;
 import cz.destil.cdhmaster.fragment.AchievementsFragment;
 import cz.destil.cdhmaster.fragment.AppFragment;
+import cz.destil.cdhmaster.fragment.HistoryFragment;
 import cz.destil.cdhmaster.fragment.LoginFragment;
 import cz.destil.cdhmaster.fragment.UnlockFragment;
-import cz.destil.cdhmaster.util.DebugLog;
 
 public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -39,10 +42,18 @@ public class MainActivity extends Activity {
     }
 
     public void replaceFragment(Class<? extends AppFragment> clazz) {
-        replaceFragment(clazz, null);
+        replaceFragment(clazz, null, false);
+    }
+
+    public void replaceFragmentToBack(Class<HistoryFragment> clazz) {
+        replaceFragment(clazz, null, true);
     }
 
     public void replaceFragment(Class<? extends AppFragment> clazz, Serializable serializable) {
+        replaceFragment(clazz, serializable, false);
+    }
+
+    public void replaceFragment(Class<? extends AppFragment> clazz, Serializable serializable, boolean addToBackStack) {
         AppFragment fragment = null;
         try {
             fragment = clazz.newInstance();
@@ -56,7 +67,11 @@ public class MainActivity extends Activity {
             bundle.putSerializable("DATA", serializable);
             fragment.setArguments(bundle);
         }
-        getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        if (addToBackStack) {
+            transaction.addToBackStack(null);
+        }
+        transaction.replace(R.id.container, fragment).commit();
     }
 
     @Override

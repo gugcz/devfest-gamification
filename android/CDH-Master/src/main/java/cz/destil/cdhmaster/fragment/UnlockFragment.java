@@ -82,16 +82,6 @@ public class UnlockFragment extends AppFragment {
         return R.menu.unlock;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_change_achievement) {
-            Preferences.clearSelectedAchievement();
-            replaceFragment(AchievementsFragment.class);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @OnClick(R.id.scan_qr)
     void scanQr() {
         try {
@@ -99,9 +89,7 @@ public class UnlockFragment extends AppFragment {
             intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
             startActivityForResult(intent, 0);
         } catch (ActivityNotFoundException e) {
-            Uri marketUri = Uri.parse("https://play.google.com/store/apps/details?id=eu.inmite.prj.vf.reader");
-            Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
-            startActivity(marketIntent);
+            Util.openBrowser(getActivity(), "https://play.google.com/store/apps/details?id=eu.inmite.prj.vf.reader");
         }
     }
 
