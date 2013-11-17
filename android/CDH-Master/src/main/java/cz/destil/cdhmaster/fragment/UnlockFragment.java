@@ -109,7 +109,7 @@ public class UnlockFragment extends AppFragment {
         if (gplusId.equals(BigInteger.ZERO)) {
             Util.toastNegative("Invalid G+ ID");
         } else {
-            replaceFragment(UnlockedFragment.class, gplusId);
+            replaceFragment(UnlockedFragment.class, gplusId, true);
         }
     }
 

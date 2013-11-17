@@ -5,10 +5,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.Collections;
 import java.util.List;
 
+import butterknife.InjectView;
 import cz.destil.cdhmaster.R;
 import cz.destil.cdhmaster.api.Achievements;
 import cz.destil.cdhmaster.api.Api;
@@ -24,7 +26,10 @@ import retrofit.client.Response;
  */
 public class HistoryFragment extends AppFragment {
 
-    private ListView vListView;
+    @InjectView(R.id.list)
+    ListView vListView;
+    @InjectView(R.id.empty)
+    TextView vEmpty;
 
     @Override
     int getLayoutId() {
@@ -33,7 +38,7 @@ public class HistoryFragment extends AppFragment {
 
     @Override
     public void setupViews(View parentView) {
-        vListView = (ListView) parentView;
+        vListView.setEmptyView(vEmpty);
         List<String> history = Preferences.getHistory();
         Collections.reverse(history);
         vListView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, history));

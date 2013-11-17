@@ -67,6 +67,6 @@ public class UnlockedFragment extends AppFragment {
 
     @Override
     public int getMenuResource() {
-        return R.menu.unlock;
+        return R.menu.login;
     }
 }

@@ -8,6 +8,7 @@ import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.MenuItem;
 import android.view.Window;
 
 import java.io.Serializable;
@@ -70,6 +71,9 @@ public class MainActivity extends Activity {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         if (addToBackStack) {
             transaction.addToBackStack(null);
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        } else {
+            getActionBar().setDisplayHomeAsUpEnabled(false);
         }
         transaction.replace(R.id.container, fragment).commit();
     }
@@ -85,5 +89,20 @@ public class MainActivity extends Activity {
                 ((UnlockFragment) currentFragment).processTag(new String(msg.getRecords()[0].getPayload()));
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        getActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

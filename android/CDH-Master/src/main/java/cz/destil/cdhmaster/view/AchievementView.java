@@ -43,6 +43,7 @@ public class AchievementView extends AdapterView<Achievements.Achievement> {
 
     @Override
     void setData(Achievements.Achievement achievement) {
+        DebugLog.d(achievement.nice_image);
         Picasso.with(App.get()).load(achievement.nice_image).into(vPicture);
         vName.setText(achievement.name);
         vLocation.setText(achievement.location);

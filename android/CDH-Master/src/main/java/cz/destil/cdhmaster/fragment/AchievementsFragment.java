@@ -7,6 +7,7 @@ import android.widget.ListView;
 
 import java.util.List;
 
+import butterknife.InjectView;
 import cz.destil.cdhmaster.R;
 import cz.destil.cdhmaster.api.Achievements;
 import cz.destil.cdhmaster.api.Api;
@@ -22,7 +23,8 @@ import retrofit.client.Response;
  */
 public class AchievementsFragment extends AppFragment {
 
-    private ListView vListView;
+    @InjectView(R.id.list)
+    ListView vListView;
 
     @Override
     int getLayoutId() {
@@ -31,7 +33,6 @@ public class AchievementsFragment extends AppFragment {
 
     @Override
     public void setupViews(View parentView) {
-        vListView = (ListView) parentView;
         if (Preferences.areAchievementsOffline()) {
             showAchievements(Preferences.getAchievements());
         } else {

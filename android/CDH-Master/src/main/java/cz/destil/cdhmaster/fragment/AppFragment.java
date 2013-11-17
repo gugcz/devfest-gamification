@@ -34,6 +34,10 @@ public abstract class AppFragment extends Fragment {
         ((MainActivity) getActivity()).replaceFragmentToBack(clazz);
     }
 
+    public void replaceFragment(Class<? extends AppFragment> clazz, Serializable serializable, boolean addToBackStack) {
+        ((MainActivity) getActivity()).replaceFragment(clazz, serializable, addToBackStack);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (getMenuResource() != -1) {

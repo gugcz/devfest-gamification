@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cz.destil.cdhmaster"
-    android:versionCode="15"
-    android:versionName="1.5" >
+    android:versionCode="16"
+    android:versionName="1.6" >
 
     <uses-sdk
         android:minSdkVersion="15"
@@ -22,7 +22,7 @@
         android:name=".App"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activity.MainActivity" >
+            android:name=".activity.MainActivity" android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
