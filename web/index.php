@@ -1,6 +1,6 @@
 <?php include("includes/header.php"); ?>
     <div class="container">
-        <p>Tady se bude generovat hash.</p>
+        <br>
 
         <?php
         if(!isset($authUrl)){

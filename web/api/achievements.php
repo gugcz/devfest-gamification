@@ -46,8 +46,10 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
         send_json_error("Invalid password");
         exit;
     }
-    //
-    if ($data['achievement_id'] <= 0 || $data['achievement_id'] > $nastaveni['numberOfAchievements']) {
+    // Kontrola zda achievement existuje
+    $result = dibi::query("SELECT COUNT(*) FROM achievements");
+    $achievements_count = $result->fetchSingle();
+    if ($data['achievement_id'] <= 0 || $data['achievement_id'] > $achievements_count) {
         send_json_error("Achievement does not exist");
         exit;
     }
@@ -92,13 +94,13 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
         );
         dibi::query('INSERT INTO log', $unlock_arr);
 
-        $result = dibi::query('SELECT user_name, user_image, achievements_unlocked, leaderboard_position
+        $result = dibi::query("SELECT user_name, user_image, achievements_unlocked, leaderboard_position
                          FROM (
                              SELECT *, @curRank := @curRank + 1 AS leaderboard_position
                              FROM leaderboard l, (SELECT @curRank := 0) r
-                             ORDER BY achievements_unlocked DESC, unlocked_last ASC) result
+                             ORDER BY " . $nastaveni['orderSequence'] . ") result
                          WHERE gplus_id = %i
-                         ', $gId);
+                         ", $gId);
 
         $response = $result->fetch();
         send_json_success($response);

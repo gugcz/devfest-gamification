@@ -16,8 +16,8 @@ if(isset($_POST['content'])){
     $content = "array(
 \"gplus_id\" => \"100156589101321820776\",
 \"achievement_id\" => 2,
-\"password\" => \"1234\",
-\"org_email\" => \"me@destil.cz\"
+\"password\" => \"3141\",
+\"org_email\" => \"jirka@korejtko.cz\"
 )";
 }
 ?><html>
@@ -30,6 +30,13 @@ Test IDs:<br>
 Jirka Korejtko: 102938374256233421705<br>
 David Vávra: 100156589101321820776<br>
 Larry Page: 106189723444098348646<br>
+Daniel Franc: 114523676440083927755<br>
+Milan Kacálek: 117544014397520627186<br>
+Jirka Pénzeš: 103463398899682658670<br>
+Tomáš Jukin: 104479307512579553448<br>
+Pavel Vybíral: 106453391606524616170<br>
+Jana Moudrá: 115898582817676935843<br>
+
 <a href="test.php?clear">Clear Database!</a>
 <h2>Request</h2>
 <form action="test.php" method="POST">
@@ -60,7 +67,7 @@ if (isset($_POST['url'])) {
 <?php
 if (isset($_POST['url'])) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://game.korejtko.cz/api/" . $_POST['url']);
+        curl_setopt($ch, CURLOPT_URL, "http://quest.devfest.cz/api/" . $_POST['url']);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HEADER, TRUE);
         curl_setopt($ch, CURLOPT_POST, TRUE);

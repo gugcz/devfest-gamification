@@ -43,6 +43,16 @@ if (isset($_SESSION['token'])) {
 </head>
 
 <body>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-45381550-1', 'devfest.cz');
+    ga('send', 'pageview');
+
+</script>
 <nav>
     <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -63,10 +73,10 @@ if (isset($_SESSION['token'])) {
                             <a href="/leaderboard">LeaderBoard</a>
                         </li>
                         <li>
-                            <a href="/achievements">Seznam achievementů</a>
+                            <a href="/o-hre">O hře</a>
                         </li>
                     </ul>
-                    <ul class="nav pull-right">
+                    <ul class="nav navbar-nav navbar-right">
 
                         <?php
                         if ($client->getAccessToken()) {
@@ -80,8 +90,8 @@ if (isset($_SESSION['token'])) {
                                 header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
                             }
                             echo "<li class='dropdown'>
-                                        <a href='#' class='dropdown-toggle' data-toggle='dropdown'>
-                                            <img src='" . substr($me['image']['url'], 0, -6) . "?sz=20'>&nbsp;&nbsp;<strong>". $me['displayName'] . "</strong><b class='caret'></b></a>
+                                        <a href='#' style='padding-top: 5px; padding-bottom: 5px;' class='dropdown-toggle' data-toggle='dropdown'>
+                                            <img src='" . substr($me['image']['url'], 0, -6) . "?sz=30'>&nbsp;&nbsp;<strong>". $me['displayName'] . "</strong><b class='caret'></b></a>
                                         <ul class='dropdown-menu'>
                                             <li><a href='?logout'>Odhlásit</a></li>
                                         </ul>
@@ -103,6 +113,7 @@ if (isset($_SESSION['token'])) {
             </div>
         </div>
 </nav>
-<div class="container">
-<img src="images/header.png" class="img-responsive" style="margin: auto;" alt="DevFest Quest - Secure Heuristic Encryption Megakey">
-</div>
+
+<img src="images/header.png" class="img-responsive" style="margin: auto;" alt="DevFest Quest - Generating Secure Heuristic Encryption Megakey">
+
+    <div id="hash"></div>

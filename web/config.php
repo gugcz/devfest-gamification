@@ -38,7 +38,7 @@ $client->setClientId($nastaveni['API_ClientId']);
 $client->setClientSecret($nastaveni['API_ClientSecret']);
 $client->setRedirectUri($nastaveni['API_RedirectUri']);
 $client->setDeveloperKey($nastaveni['API_KEY']);
-$client->setScopes(array('https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/plus.me')); // set scope during user login
+$client->setScopes(array('https://www.googleapis.com/auth/plus.me')); // set scope during user login
 $plus = new Google_PlusService($client);
 
 
@@ -67,7 +67,9 @@ function send_json_error($message)
     echo $out;
 }
 
-function a($cislo, $s1 = "bod", $s2 = "body", $s3 = "bodů")
+//function a($cislo, $s1 = "bod", $s2 = "body", $s3 = "bodů")
+//function a($cislo, $s1 = "achievement", $s2 = "achievementy", $s3 = "achievementů")
+function a($cislo, $s1 = "x", $s2 = "x", $s3 = "x")
 {
     switch ($cislo) {
         case 1:
