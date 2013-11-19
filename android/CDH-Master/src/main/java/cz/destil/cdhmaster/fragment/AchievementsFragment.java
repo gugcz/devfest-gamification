@@ -1,19 +1,18 @@
 package cz.destil.cdhmaster.fragment;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import cz.destil.cdhmaster.App;
+import java.util.List;
+
+import butterknife.InjectView;
 import cz.destil.cdhmaster.R;
 import cz.destil.cdhmaster.api.Achievements;
 import cz.destil.cdhmaster.api.Api;
 import cz.destil.cdhmaster.data.Preferences;
-import cz.destil.cdhmaster.util.DebugLog;
 import cz.destil.cdhmaster.util.Util;
-import cz.destil.cdhmaster.view.AchievementView;
 import cz.destil.cdhmaster.view.ViewAdapter;
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -24,36 +23,63 @@ import retrofit.client.Response;
  */
 public class AchievementsFragment extends AppFragment {
 
-    private ListView vListView;
+    @InjectView(R.id.list)
+    ListView vListView;
 
     @Override
     int getLayoutId() {
-        return R.layout.fragment_achievements;
+        return R.layout.fragment_list;
     }
 
     @Override
     public void setupViews(View parentView) {
-        vListView = (ListView) parentView;
+        if (Preferences.areAchievementsOffline()) {
+            showAchievements(Preferences.getAchievements());
+        } else {
+            downloadAchievements();
+        }
+    }
 
+    private void showAchievements(List<Achievements.Achievement> achievements) {
+        final ViewAdapter<Achievements.Achievement> adapter = new ViewAdapter<Achievements.Achievement>(achievements, R.layout.view_achievement);
+        vListView.setAdapter(adapter);
+        vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Preferences.saveAchievement(adapter.getItem(position));
+                replaceFragment(UnlockFragment.class);
+            }
+        });
+    }
+
+    private void downloadAchievements() {
+        showProgress();
         Api.get().create(Achievements.class).get(new Callback<Achievements.Response>() {
             @Override
             public void success(Achievements.Response response, Response response2) {
-                DebugLog.d(response.items.toString());
-                final ViewAdapter<Achievements.Achievement> adapter = new ViewAdapter<Achievements.Achievement>(response.items, R.layout.view_achievement);
-                vListView.setAdapter(adapter);
-                vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Preferences.saveAchievement(adapter.getItem(position));
-                        replaceFragment(UnlockFragment.class);
-                    }
-                });
+                hideProgress();
+                showAchievements(response.items);
+                Preferences.saveAchievementList(response.items);
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Util.toast(Api.getErrorString(error));
+                hideProgress();
+                Util.toastNegative(Api.getErrorString(error));
             }
         });
+    }
+
+    @Override
+    public int getMenuResource() {
+        return R.menu.achievements;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_refresh) {
+            downloadAchievements();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

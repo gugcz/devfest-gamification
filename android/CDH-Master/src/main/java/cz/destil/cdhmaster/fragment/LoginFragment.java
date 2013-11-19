@@ -1,15 +1,18 @@
 package cz.destil.cdhmaster.fragment;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.Views;
+import cz.destil.cdhmaster.App;
 import cz.destil.cdhmaster.R;
 import cz.destil.cdhmaster.api.Achievements;
 import cz.destil.cdhmaster.api.Api;
@@ -36,17 +39,28 @@ public class LoginFragment extends AppFragment {
     @OnClick(R.id.verify)
     void verify() {
         final String password = vPassword.getText().toString();
+        showProgress();
         Api.get().create(Login.class).verify(new Login.Request(password), new Callback<Login.Response>() {
             @Override
             public void success(Login.Response loginResponse, Response response) {
+                hideProgress();
                 Preferences.savePassword(password);
+                InputMethodManager imm = (InputMethodManager) App.get().getSystemService(
+                        Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(vPassword.getWindowToken(), 0);
                 replaceFragment(AchievementsFragment.class);
             }
 
             @Override
             public void failure(RetrofitError retrofitError) {
+                hideProgress();
                 vPassword.setError(Api.getErrorString(retrofitError));
             }
         });
+    }
+
+    @Override
+    public int getMenuResource() {
+        return R.menu.login;
     }
 }
