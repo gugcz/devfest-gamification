@@ -50,6 +50,7 @@ public abstract class AppFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Views.inject(this, view);
+        hideProgress();
         setupViews(view);
         if (savedInstanceState==null) {
             setupViewsFirstRotation(view);
