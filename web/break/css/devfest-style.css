@@ -22,12 +22,11 @@
     list-style: none;
     list-style-image: none;
     list-style-position: outside;
-    margin: 0 0 0 155px;
     padding: 0;
 }
 
 .menu-h li {
-    float: left
+    width: 222px;
 }
 
 .countdown {
@@ -49,7 +48,6 @@
 
 #countdown li {
     text-align: center;
-    margin: 0 155px 0 0;
     font-size: 36px;
 }
 

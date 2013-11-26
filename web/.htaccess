@@ -1,3 +1,12 @@
+AuthUserFile /var/www/html/game.devfest.cz/break/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Pristup k DevFest Praha 2013 TEST API"
+AuthType Basic
+
+<Files "test.php">
+    require valid-user
+</Files>
+
 # URL rewriting module activation
 RewriteEngine on
 

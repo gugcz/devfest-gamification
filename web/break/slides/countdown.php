@@ -1,8 +1,18 @@
 <?php require_once("../config.php");
+if (isset($_GET['prednaska']))
+    $id = $_GET['prednaska'];
+else
+    header("Location: promo");
+
+$result = dibi::query("SELECT name, image, time FROM prednasky WHERE id = %i", $id);
+$r = $result->fetchAll();
+$r = $r[0];
+$name = $r['name'];
+$time = $r['time'];
+$image = $r['image'] == "" ? "GDGarrow.jpg":$r['image'];
+
 if (isset($_GET['time']))
     $time = $_GET['time'];
-else
-    header("Location: /leaderboard-single");
 
 ?>
 <!DOCTYPE html>
@@ -34,6 +44,7 @@ else
             padding-top: 0px;
             font-size: 24px;
         }
+
         .next {
             margin: 20px 0 0 0;
             display: block;
@@ -41,6 +52,7 @@ else
             font-weight: bold;
             font-size: 50px;
         }
+
         .prednaska {
             margin: 0;
             display: block;
@@ -49,6 +61,7 @@ else
             color: #0080c5;
             font-size: 70px;
             overflow: hidden;
+            height: 200px;
         }
     </style>
 </head>
@@ -59,23 +72,34 @@ else
         <img src="http://quest.devfest.cz/images/footer.png" class="img-responsive" style="margin: auto;">
 
         <span class="next">Následuje</span>
-        <span class="prednaska">Vnitřní architektura Chrome Developer Tools</span>
 
-        <div class="col-md-12 countdown">
-            <div id="countdown">
-                <div style="height: 50px"></div>
+        <div style="height: 20px"></div>
+        <span class="prednaska"><?php echo $name; ?></span>
+
+        <div style="height: 68px"></div>
+        <div class="row countdown" id="countdown">
+            <div class="col-md-4 text-center">
+                <img src="images/recnici/<?php echo $image; ?>">
+            </div>
+            <div class="col-md-4 counter">
                 <ul class="menu menu-h">
-                    <li>
+                    <li style="margin: 0 auto">
                         <span id="minutes"></span> Minut
                     </li>
-                    <li>
+                </ul>
+            </div>
+            <div class="col-md-4 counter">
+                <ul class="menu menu-h">
+                    <li style="margin: 0 auto">
                         <span id="seconds"></span> Vteřin
                     </li>
                 </ul>
             </div>
+            <div class="col-md-8 aftercounter" style="display: none; margin-bottom: 21px;">
+                <span style="font-size: 120px; font-weight: bold; text-align: center;">Za chvíli<br>to začne!</span>
+                </div>
         </div>
-
-        <div style="height: 103px"></div>
+        <div style="height: 93px"></div>
 
         <img src="http://quest.devfest.cz/images/footer.png" class="img-responsive" style="margin: auto;">
     </div>
@@ -96,7 +120,8 @@ else
                         $this.find('span#' + event.type).html(event.value);
                         break;
                     case "finished":
-                        $this.hide();
+                        $this.find('div.counter').hide();
+                        $this.find('div.aftercounter').show();
                         break;
                 }
             });

@@ -119,11 +119,11 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
 
     $result = dibi::query("SELECT * FROM achievements");
     $allAchievements = $result->fetchAll();
-    /*$image_folder_url = "http://game.korejtko.cz/images/achievements/";
+    $image_folder_url = "http://quest.devfest.cz/images/achievements/300/";
     foreach ($allAchievements as $achievement) {
         $achievement['basic_image'] = $image_folder_url . $achievement['basic_image'];
         $achievement['nice_image'] = $image_folder_url . $achievement['nice_image'];
-    }*/
+    }
     $items = array(
         "items" => $allAchievements);
     send_json_success($items);

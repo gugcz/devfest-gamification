@@ -183,6 +183,21 @@ footer .copyright {
     overflow: hidden;
 }
 
+#shem {
+    /*width: 1000px;*/
+    height: 65px;
+    color: #ffffff;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: -65px auto 0 auto;
+    width: auto;
+    position: relative;
+    overflow: hidden;
+}
+
 .hash-letter {
     position: relative;
 }
@@ -197,12 +212,25 @@ footer .copyright {
         height: 27px;
         margin-top: -27px;
     }
+
+    #shem {
+        font-size: 20px;
+        height: 50px;
+        margin-top: -50px;
+    }
 }
+
 @media (max-width: 600px) {
     #hash {
         font-size: 10px;
         height: 20px;
         margin-top: -20px;
+    }
+
+    #shem {
+        font-size: 13px;
+        height: 35px;
+        margin-top: -35px;
     }
 }
 
@@ -211,6 +239,12 @@ footer .copyright {
         font-size: 5px;
         height: 10px;
         margin-top: -10px;
+    }
+
+    #shem {
+        font-size: 8px;
+        height: 20px;
+        margin-top: -20px;
     }
 }
 
@@ -234,6 +268,16 @@ footer .copyright {
         width: 1280px;
         height: 768px;
         margin: -384px 0 0 -640px;
+    }
+}
+
+@media (min-height: 769px) {
+    .totalcenter {
+        width: 1280px;
+        height: 768px;
+        margin: -384px 0 0 -640px;
+        zoom: 1.405;
+        /*-webkit-transform: scale(1.405);*/
     }
 }
 

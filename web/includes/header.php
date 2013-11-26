@@ -114,6 +114,6 @@ if (isset($_SESSION['token'])) {
         </div>
 </nav>
 
-<img src="images/header.png" class="img-responsive" style="margin: auto;" alt="DevFest Quest - Generating Secure Heuristic Encryption Megakey">
-
+<img src="images/header.jpg" class="img-responsive" style="margin: auto;" alt="DevFest Quest - Generating Secure Heuristic Encryption Megakey">
+    <div id="shem"></div>
     <div id="hash"></div>

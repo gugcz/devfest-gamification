@@ -68,7 +68,7 @@
                 if (count($result) == 0) {
                     echo "<tr><td>&nbsp;</td><td colspan='2'>Zatím nikdo nesoutěžil.</td><td>&nbsp;</td></tr>";
                 } else if (is_null($mojePozice)) {
-                    echo "<tr><td>&nbsp;</td><td colspan='2'>Zatím jste se do soutěže nezapojil.</td><td>&nbsp;</td></tr>";
+                    echo "<tr><td>&nbsp;</td><td colspan='2'>Zatím jsi se do soutěže nezapojil.</td><td>&nbsp;</td></tr>";
                 } else {
                     $i = $startLimit + 1;
 

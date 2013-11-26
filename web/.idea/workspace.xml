@@ -17,54 +17,21 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+    <sortChildren value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="DevFest Game" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="60" selection-start="2741" selection-end="2741" vertical-scroll-proportion="-7.5384617" vertical-offset="1130" max-vertical-offset="2108">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hash.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="hash.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/hash.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="23" selection-start="1880" selection-end="1880" vertical-scroll-proportion="0.0" vertical-offset="892" max-vertical-offset="1921">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="promo.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/break/slides/promo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="53" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.2857143" vertical-offset="561" max-vertical-offset="1411">
-              <folding>
-                <element signature="n#style#0;n#h1#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="theme.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/theme.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="203" column="21" selection-start="4201" selection-end="4201" vertical-scroll-proportion="0.0" vertical-offset="3187" max-vertical-offset="4284">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/footer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="67" selection-start="520" selection-end="520" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="408">
+            <state line="70" column="37" selection-start="2144" selection-end="2144" vertical-scroll-proportion="0.13043478" vertical-offset="1109" max-vertical-offset="2040">
               <folding />
             </state>
           </provider>
@@ -80,22 +47,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/break/slides/partneri.php" />
-        <option value="$PROJECT_DIR$/includes/panel-achievements.php" />
-        <option value="$PROJECT_DIR$/achievement_detail.php" />
-        <option value="$PROJECT_DIR$/achievements.php" />
-        <option value="$PROJECT_DIR$/break/js/hash.js" />
-        <option value="$PROJECT_DIR$/break/css/theme.css" />
-        <option value="$PROJECT_DIR$/break/slides/leaderboard-single.php" />
-        <option value="$PROJECT_DIR$/break/index.php" />
-        <option value="$PROJECT_DIR$/break/js/BreakWallCtrl.js" />
-        <option value="$PROJECT_DIR$/break/slides/countdown.php" />
-        <option value="$PROJECT_DIR$/js/hash.js" />
-        <option value="$PROJECT_DIR$/css/theme.css" />
-        <option value="$PROJECT_DIR$/includes/footer.php" />
-        <option value="$PROJECT_DIR$/includes/header.php" />
+        <option value="$PROJECT_DIR$/break/twtwall/index.php" />
+        <option value="$PROJECT_DIR$/fcwall/config.js" />
+        <option value="$PROJECT_DIR$/break/twtwall/config4.js" />
+        <option value="$PROJECT_DIR$/break/twtwall/config5.js" />
+        <option value="$PROJECT_DIR$/break/twtwall/config6.js" />
         <option value="$PROJECT_DIR$/includes/leaderboard-login.php" />
+        <option value="$PROJECT_DIR$/css/theme.css" />
+        <option value="$PROJECT_DIR$/includes/header.php" />
+        <option value="$PROJECT_DIR$/break/css/style.css" />
+        <option value="$PROJECT_DIR$/break/slides/countdown.php" />
+        <option value="$PROJECT_DIR$/break/js/BreakWallCtrl.js" />
         <option value="$PROJECT_DIR$/break/slides/promo.php" />
+        <option value="$PROJECT_DIR$/break/slides/leaderboard-single.php" />
+        <option value="$PROJECT_DIR$/o-hre.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/js/hash.js" />
       </list>
     </option>
   </component>
@@ -179,53 +146,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DevFest Game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DevFest Game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="break" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DevFest Game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="break" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slides" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -263,18 +184,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\break\twtwall" />
+      <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web" />
       <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\break\js" />
       <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\break\images\partneri" />
       <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\break" />
-      <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\break\images" />
-      <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\break\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\break" />
       <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\js" />
       <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\break\css" />
       <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\break\slides" />
       <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\web\demo" />
-      <recent name="C:\Users\Jirka\Documents\PhpstormProjects\DevFest Game\libs" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Application.Run on web">
@@ -366,25 +287,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="816" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3378788" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3530303" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32575756" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287879" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21555915" sideWeight="0.67424244" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20988655" sideWeight="0.6469697" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3242424" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -404,109 +325,91 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/break/js/jquery.countdown.min.js">
+    <entry file="file://$PROJECT_DIR$/break/twtwall/config4.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="621" />
+        <state line="2" column="40" selection-start="84" selection-end="84" vertical-scroll-proportion="0.05362776" vertical-offset="0" max-vertical-offset="634" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/break/slides/partneri.php">
+    <entry file="file://$PROJECT_DIR$/break/twtwall/config5.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="44" selection-start="385" selection-end="385" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="612">
-          <folding />
-        </state>
+        <state line="2" column="40" selection-start="84" selection-end="84" vertical-scroll-proportion="0.05362776" vertical-offset="0" max-vertical-offset="634" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/achievements.php">
+    <entry file="file://$PROJECT_DIR$/break/twtwall/config6.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="107" selection-start="1421" selection-end="1421" vertical-scroll-proportion="0.501845" vertical-offset="153" max-vertical-offset="1003" />
+        <state line="2" column="40" selection-start="84" selection-end="84" vertical-scroll-proportion="0.05362776" vertical-offset="0" max-vertical-offset="634" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/achievement_detail.php">
+    <entry file="file://$PROJECT_DIR$/includes/leaderboard-login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="54" selection-start="1773" selection-end="1773" vertical-scroll-proportion="0.5645757" vertical-offset="306" max-vertical-offset="986" />
+        <state line="70" column="70" selection-start="4042" selection-end="4042" vertical-scroll-proportion="0.4" vertical-offset="952" max-vertical-offset="2210" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/panel-achievements.php">
+    <entry file="file://$PROJECT_DIR$/css/theme.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="1303" selection-end="1303" vertical-scroll-proportion="0.49815497" vertical-offset="189" max-vertical-offset="731" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/break/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="33" selection-start="230" selection-end="230" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/break/js/BreakWallCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="1" selection-start="5087" selection-end="5087" vertical-scroll-proportion="0.0" vertical-offset="1797" max-vertical-offset="2499">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/break/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="634">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/break/slides/leaderboard-single.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="12" selection-start="934" selection-end="1233" vertical-scroll-proportion="0.8" vertical-offset="153" max-vertical-offset="1666">
-          <folding />
-        </state>
+        <state line="218" column="23" selection-start="4507" selection-end="4507" vertical-scroll-proportion="0.30112723" vertical-offset="3519" max-vertical-offset="5032" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/break/slides/countdown.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="29" selection-start="1158" selection-end="1158" vertical-scroll-proportion="0.120065786" vertical-offset="488" max-vertical-offset="1904">
+        <state line="112" column="59" selection-start="3773" selection-end="3773" vertical-scroll-proportion="-6.5384617" vertical-offset="1734" max-vertical-offset="2329" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/break/js/BreakWallCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="21" selection-start="2612" selection-end="2612" vertical-scroll-proportion="0.56199676" vertical-offset="977" max-vertical-offset="2499" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/break/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="15" selection-start="640" selection-end="640" vertical-scroll-proportion="0.3063063" vertical-offset="0" max-vertical-offset="1445" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/break/slides/promo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="55" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.23423423" vertical-offset="370" max-vertical-offset="1411" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/break/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="25" selection-start="32" selection-end="32" vertical-scroll-proportion="0.018599562" vertical-offset="0" max-vertical-offset="914" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="25" selection-start="4965" selection-end="4986" vertical-scroll-proportion="0.865991" vertical-offset="1220" max-vertical-offset="2108" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/break/slides/leaderboard-single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="77" selection-start="3810" selection-end="3810" vertical-scroll-proportion="1.6846846" vertical-offset="0" max-vertical-offset="1717" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/break/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="251" selection-end="251" vertical-scroll-proportion="0.2949527" vertical-offset="0" max-vertical-offset="634">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/o-hre.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="42" selection-start="2517" selection-end="2517" vertical-scroll-proportion="0.7714286" vertical-offset="204" max-vertical-offset="1105">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/hash.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="23" selection-start="1880" selection-end="1880" vertical-scroll-proportion="0.0" vertical-offset="892" max-vertical-offset="1921">
+        <state line="70" column="37" selection-start="2144" selection-end="2144" vertical-scroll-proportion="0.13043478" vertical-offset="1109" max-vertical-offset="2040">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/theme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="21" selection-start="4201" selection-end="4201" vertical-scroll-proportion="0.0" vertical-offset="3187" max-vertical-offset="4284">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="67" selection-start="520" selection-end="520" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="408">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/leaderboard-login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="88" selection-start="2196" selection-end="2196" vertical-scroll-proportion="0.6" vertical-offset="204" max-vertical-offset="2210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="60" selection-start="2741" selection-end="2741" vertical-scroll-proportion="-7.5384617" vertical-offset="1130" max-vertical-offset="2108">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/break/slides/promo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="53" selection-start="1450" selection-end="1450" vertical-scroll-proportion="0.2857143" vertical-offset="561" max-vertical-offset="1411">
-          <folding>
-            <element signature="n#style#0;n#h1#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

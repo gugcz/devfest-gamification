@@ -76,7 +76,7 @@ breakWallAppModule.controller('BreakWallCtrl', function BreakWallCtrl($scope) {
                 $slide.data('info', slide);
                 $('#slideshow').append($slide);
             });
-
+            $("html, body").css("overflow", "hidden");
             $slideshowElement.show();
             toggleFullScreen();
             $scope.continueWith(0);

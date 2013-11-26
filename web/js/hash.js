@@ -65,10 +65,13 @@ function getGeneratedNumberByTime(now, hashLength) {
 
 $(function () {
     var hashLength = 80;
-    var now = window.location.search == "" ? new Date() : new Date("2013-11-18 " + window.location.search.substr(1) + ":00");
-    var generatedNumber = getGeneratedNumberByTime(now, hashLength);
+    //var now = window.location.search == "" ? new Date() : new Date("2013-11-18 " + window.location.search.substr(1) + ":00");
+    var now = new Date();
+    //var generatedNumber = getGeneratedNumberByTime(now, hashLength);
+    var generatedNumber = hashLength;
     var animatedNumbers = 3;
     var $hashElement = $('#hash');
+    var $hashTitleElement = $('#shem');
     var i;
     var $hashLetters = [];
     var hash =  generatedNumber < 0 ? '' : new Array(Math.min(hashLength, generatedNumber + animatedNumbers)).join('.').split('.').map(randomHexNumber).join('');
@@ -83,6 +86,10 @@ $(function () {
 
     if(generatedNumber < 0)
         return;
+    else if(generatedNumber < hashLength)
+        $hashTitleElement.text("Generating Secure Heuristic Encryption Megakey:");
+    else
+        $hashTitleElement.text("Secure Heuristic Encryption Megakey:");
 
     var animateChange = function(letter, index) {
         var $hashLetter = $hashLetters[index];

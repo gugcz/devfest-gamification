@@ -126,7 +126,8 @@ function findNextSchedule(delayM, after) {
 
   first = false;
 
-  return s;
+    //return s;
+  return null; // FIX!
 }
 
 function showSchedule(due) {
@@ -484,11 +485,13 @@ var twitterQueue = new Queue(config.timings.showTweetsEvery || 3000, function (i
 
   var tweet = $(renderTweet(item)),
       tweetClone = tweet.clone().hide().css({ visibility: 'hidden' }).prependTo($tweets).slideDown(1000);
-
+  //tweetClone.children(":first").removeClass("barvicka");
+  //tweet.children(":first").removeClass("barvicka");
   tweet.css({ top: -200, position: 'absolute' }).prependTo($tweets).animate({
-    top: 0
+    top: 10
   }, 1000, function () {
     tweetClone.css({ visibility: 'visible' });
+//    tweetClone.children(":first").addClass("barvicka");
     $(this).remove();
   });
 

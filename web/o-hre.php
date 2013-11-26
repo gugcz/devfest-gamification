@@ -4,7 +4,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <h1><strong>O hře</strong></h1>
 
-                <p style="font-style: italic;">Kde to jste? V renesanční Praze! Trochu pomatený alchymista na dvoře
+                <p style="font-style: italic; text-align: justify;">Kde to jste? V renesanční Praze! Trochu pomatený alchymista na dvoře
                     císaře
                     Rudolfa II. vás omylem s celou konferencí přetáhl do své doby. Je to výsledek rituálu, kterým se
                     snažil
@@ -16,7 +16,7 @@
                     nástroj, ale
                     potřebuje mimořádně složitý dešifrovací klíč. Proto jsem vytvořila achievementy, jejichž odemykáním
                     mi
-                    pomůžete generovat další a další znaky dešifrovacího klíče. Alchymista tvrdí, že ty nejlepší odmění
+                    pomůžete generovat další a další znaky dešifrovacího klíče. Alchymista tvrdí, že&nbsp;ty nejlepší odmění
                     a ten
                     úplně nejlepší dokonce bude moci Josill použít jako první. Ale já bych mu tak nevěřila...</p>
 
@@ -35,10 +35,9 @@
                     </li>
                     <li>To, že se chcete pokusit achievement splnit byste měli organizátorovi říct</li>
                     <li>Achievement vám organizátor udělí po nascanování vašeho badge. Hrát můžete pouze v případě,
-                        pokud jste v
-                        registračním formuláři vyplnili svůj G+ profil. Pokud byste i přes to moc chtěli hrát, zkuste
+                        pokud jste v&nbsp;registračním formuláři vyplnili svůj G+ profil. Pokud jste to neudělali a chtěli hrát, zkuste
                         zajít na
-                        GUG stánek a třeba to tam nějak vyřešíme.
+                        GUG stánek a&nbsp;třeba to tam nějak vyřešíme.
                     </li>
                     <li>Na tomto webu můžete vidět globální leaderboard a porovnávat se s ostatními. V případě shody
                         bodů je na

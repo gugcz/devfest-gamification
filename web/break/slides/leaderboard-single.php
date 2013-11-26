@@ -43,12 +43,12 @@
     <div class="container">
         <img src="http://quest.devfest.cz/images/footer.png" class="img-responsive" style="margin: auto;">
     </div>
-    <br>
+    <h2 style="text-align: center; font-weight: bold; margin: 29px 0;">Leaderboard achievementů - <span style="color: #0080c5;">quest.devfest.cz</span></h2>
 
     <div class="container">
         <div class="row">
             <?php
-            $pocet = 12;
+            $pocet = 11;
             for ($j = 0; $j < 2; $j++) {
                 ?>
                 <div class="col-md-6">
@@ -61,9 +61,12 @@
 
                             <?php
                             $result = dibi::query("SELECT * FROM leaderboard ORDER BY " . $nastaveni['orderSequence'] . " %ofs %lmt", $j * $pocet, $pocet);
-                            if (count($result) == 0) {
-                                echo "<tr><td>&nbsp;</td><td>&nbsp;</td><td>Zatím nikdo nesoutěžil</td><td>&nbsp;</td></tr>";
-                            } else {
+                            if (count($result) == 0 && $j == 1) {
+                                echo "<tr><td colspan='4'>Do soutěže se zapojilo méně než ".$pocet." účastníků</td></tr>";
+                            } elseif (count($result) == 0) {
+                                echo "<tr><td>&nbsp;</td><td>&nbsp;</td><td>Zatím nikdo nesoutěžil.</td><td>&nbsp;</td></tr>";
+                            }
+                            else {
                                 $i = $j * $pocet + 1;
                                 foreach ($result as $player) {
                                     echo "<tr>
@@ -83,7 +86,7 @@
         </div>
     </div>
     <div style="height: 8px"></div>
-    <div class="container">
+    <div class="container" style="position: absolute; bottom: 0; width: 100%;">
         <img src="http://quest.devfest.cz/images/footer.png" class="img-responsive" style="margin: auto;">
     </div>
 </div>

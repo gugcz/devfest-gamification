@@ -32,9 +32,9 @@
 <body>
 <div class="totalcenter">
 
-    <img src="http://quest.devfest.cz/images/header.png" class="img-responsive" style="margin: auto;"
+    <img src="http://quest.devfest.cz/images/header.jpg" class="img-responsive" style="margin: auto;"
          alt="DevFest Quest - Generating Secure Heuristic Encryption Megakey">
-
+    <div id="shem"></div>
     <div id="hash"></div>
 
     <h1 class="text-center" style="font-weight: bold;">Chceš se vrátit do současnosti?</h1>
