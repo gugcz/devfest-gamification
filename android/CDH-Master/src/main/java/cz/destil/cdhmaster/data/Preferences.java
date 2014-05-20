@@ -1,17 +1,17 @@
 package cz.destil.cdhmaster.data;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import cz.destil.cdhmaster.App;
 import cz.destil.cdhmaster.api.Achievements;
+import cz.destil.cdhmaster.api.Attendees;
 
 /**
  * Created by Destil on 24.10.13.
@@ -90,4 +90,15 @@ public class Preferences {
         }
         return null;
     }
+
+	public static void saveAttendees(List<Attendees.Attendee> items) {
+		String json = new Gson().toJson(items);
+		get().edit().putString("ATTENDEES", json).commit();
+	}
+
+	public static List<Attendees.Attendee> getAttendees() {
+		String json = get().getString("ATTENDEES", null);
+		return new Gson().fromJson(json, new TypeToken<List<Attendees.Attendee>>() {
+		}.getType());
+	}
 }

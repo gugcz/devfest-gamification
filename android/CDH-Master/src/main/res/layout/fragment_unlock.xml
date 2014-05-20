@@ -49,29 +49,21 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/nfc_status"
+            <AutoCompleteTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
-                android:text="Tap attendee badge to unlock achievement"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="or"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+	            android:hint="Type attendee name"
+	            android:inputType="textPersonName|textNoSuggestions"
+	            android:id="@+id/attendee_name"
+                android:layout_marginTop="10dp"/>
 
             <Button
-                android:id="@+id/scan_qr"
+                android:id="@+id/unlock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:text="Scan QR" />
+                android:text="Unlock achievement" />
         </LinearLayout>
 
     </LinearLayout>

@@ -5,17 +5,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
-import java.math.BigInteger;
-
 import butterknife.InjectView;
 import butterknife.OnClick;
+import com.squareup.picasso.Picasso;
 import cz.destil.cdhmaster.App;
 import cz.destil.cdhmaster.R;
 import cz.destil.cdhmaster.api.Achievements;
 import cz.destil.cdhmaster.data.Preferences;
 import cz.destil.cdhmaster.service.UnlockService;
+import cz.destil.cdhmaster.util.Util;
 
 /**
  * Created by Destil on 30.10.13.
@@ -41,28 +39,27 @@ public class UnlockedFragment extends AppFragment {
     @Override
     public void setupViews(View parentView) {
         Achievements.Achievement achievement = Preferences.getAchievement();
-        BigInteger gplusId = (BigInteger) getData();
         Picasso.with(App.get()).load(achievement.nice_image).into(vNiceImage);
-        Picasso.with(App.get()).load("https://plus.google.com/s2/photos/profile/" + gplusId + "?sz=200").into(vProfilePicture);
         vName.setText(achievement.name);
         vCongratzText.setText(achievement.congrats_text);
     }
 
     @Override
     public void setupViewsFirstRotation(View parentView) {
-        BigInteger gplusId = (BigInteger) getData();
-        unlockAchievement(gplusId);
+	    long attendeeId = (Long) getData();
+        unlockAchievement(attendeeId);
     }
 
-    private void unlockAchievement(BigInteger gplusId) {
+    private void unlockAchievement(long attendeeId) {
         Intent intent = new Intent(getActivity(), UnlockService.class);
-        intent.putExtra(UnlockService.EXTRA_GPLUS_ID, gplusId);
+        intent.putExtra(UnlockService.EXTRA_ATTENDEE_ID, attendeeId);
         getActivity().startService(intent);
     }
 
     @OnClick(R.id.unlock_next)
     void unlockNext() {
-        replaceFragment(UnlockFragment.class);
+	    Util.showKeyboard();
+	    getActivity().onBackPressed();
     }
 
     @Override

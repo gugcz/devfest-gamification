@@ -1,15 +1,10 @@
 package cz.destil.cdhmaster.fragment;
 
+import java.io.Serializable;
+
 import android.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-
-import java.io.Serializable;
+import android.view.*;
 
 import butterknife.Views;
 import cz.destil.cdhmaster.R;
@@ -21,6 +16,8 @@ import cz.destil.cdhmaster.util.Util;
  * Created by Destil on 24.10.13.
  */
 public abstract class AppFragment extends Fragment {
+
+	View mView;
 
     public void replaceFragment(Class<? extends AppFragment> clazz) {
         ((MainActivity) getActivity()).replaceFragment(clazz);
@@ -51,6 +48,7 @@ public abstract class AppFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Views.inject(this, view);
         setupViews(view);
+	    mView = view;
         if (savedInstanceState==null) {
             setupViewsFirstRotation(view);
         }
@@ -82,9 +80,11 @@ public abstract class AppFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_history:
+	            Util.hideKeyboard(mView);
                 replaceFragmentToBack(HistoryFragment.class);
                 return true;
             case R.id.menu_change_achievement:
+	            Util.hideKeyboard(mView);
                 Preferences.clearSelectedAchievement();
                 replaceFragment(AchievementsFragment.class);
                 return true;

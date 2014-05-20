@@ -1,7 +1,5 @@
 package cz.destil.cdhmaster.api;
 
-import java.math.BigInteger;
-
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.POST;
@@ -15,13 +13,13 @@ public interface Unlock {
     void unlock(@Body Request request, Callback<Response> cb);
 
     static class Request {
-        BigInteger gplus_id;
+        long attendee_id;
         int achievement_id;
         String password;
         String org_email;
 
-        public Request(BigInteger gplus_id, int achievement_id, String password, String org_email) {
-            this.gplus_id = gplus_id;
+        public Request(long attendee_id, int achievement_id, String password, String org_email) {
+            this.attendee_id = attendee_id;
             this.achievement_id = achievement_id;
             this.password = password;
             this.org_email = org_email;

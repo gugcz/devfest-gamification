@@ -1,16 +1,17 @@
 package cz.destil.cdhmaster.fragment;
 
+import java.util.List;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.List;
-
 import butterknife.InjectView;
 import cz.destil.cdhmaster.R;
 import cz.destil.cdhmaster.api.Achievements;
 import cz.destil.cdhmaster.api.Api;
+import cz.destil.cdhmaster.api.Attendees;
 import cz.destil.cdhmaster.data.Preferences;
 import cz.destil.cdhmaster.util.Util;
 import cz.destil.cdhmaster.view.ViewAdapter;
@@ -68,6 +69,17 @@ public class AchievementsFragment extends AppFragment {
                 Util.toastNegative(Api.getErrorString(error));
             }
         });
+	    Api.get().create(Attendees.class).get(new Callback<Attendees.Response>() {
+		    @Override
+		    public void success(Attendees.Response response, Response response2) {
+			    Preferences.saveAttendees(response.items);
+		    }
+
+		    @Override
+		    public void failure(RetrofitError error) {
+			    Util.toastNegative(Api.getErrorString(error));
+		    }
+	    });
     }
 
     @Override
