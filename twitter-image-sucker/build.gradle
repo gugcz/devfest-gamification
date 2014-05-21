@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.squareup.retrofit:retrofit:+'
+    compile 'com.squareup.okhttp:okhttp:+'
+    compile 'commons-codec:commons-codec:+'
+    compile 'org.apache.commons:commons-io:+'
+}
