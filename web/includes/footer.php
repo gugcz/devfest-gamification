@@ -6,7 +6,7 @@
         <div class="row copyright">
             <div class="col-md-12">
                 <p>
-                    &copy; <a href="//devfest.cz">DevFest Praha 2013</a>
+                    &copy; <a href="//www.gug.cz" target="_blank">GUG.cz</a>, developed originally for <a href="//wwww.devfest.cz" targer="_blank">DevFest Praha 2013</a>
                 </p>
             </div>
         </div>

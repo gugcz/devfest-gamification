@@ -22,10 +22,10 @@ if (isset($_SESSION['token'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DevFest Quest">
+    <meta name="description" content="mDevGame">
     <meta name="author" content="Jirka Korejtko">
 
-    <title>DevFest Quest</title>
+    <title>mDevGame</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -43,7 +43,7 @@ if (isset($_SESSION['token'])) {
 </head>
 
 <body>
-<script>
+<?php /*<script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -53,6 +53,7 @@ if (isset($_SESSION['token'])) {
     ga('send', 'pageview');
 
 </script>
+*/ ?>
 <nav>
     <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -64,7 +65,7 @@ if (isset($_SESSION['token'])) {
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/leaderboard" title="DevFest Game">
-                    DevFest Quest
+                    mDevGame
                 </a>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -114,6 +115,7 @@ if (isset($_SESSION['token'])) {
         </div>
 </nav>
 
-<img src="images/header.jpg" class="img-responsive" style="margin: auto;" alt="DevFest Quest - Generating Secure Heuristic Encryption Megakey">
+<?php /*<img src="images/header.jpg" class="img-responsive" style="margin: auto;" alt="DevFest Quest - Generating Secure Heuristic Encryption Megakey">
     <div id="shem"></div>
     <div id="hash"></div>
+    */?>
