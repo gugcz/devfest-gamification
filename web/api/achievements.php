@@ -18,7 +18,7 @@
  *  SET achievements_unlocked = (achievements_unlocked + 1),
  *      unlocked_first = IF (unlocked_first IS NULL, NOW(), unlocked_first),
  *      unlocked_last = NOW()
- *  WHERE gplus_id = NEW.gplus_id;
+ *  WHERE attendee_id = NEW.attendee_id;
  * UPDATE achievements
  *  SET unlocked_count = (unlocked_count + 1)
  *  WHERE id = NEW.achievement_id;
@@ -54,19 +54,23 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
         exit;
     }
 
-    $gId = $data['gplus_id'];
-    $result = dibi::query("SELECT user_name, user_image  FROM leaderboard WHERE gplus_id = %i", $gId);
+    $attId = $data['attendee_id'];
+    $result = dibi::query("SELECT * FROM leaderboard WHERE attendee_id = %i", $attId);
     $rows = count($result);
-
+    if ($rows == 0) {
+        send_json_error("Invalid attendee id");
+        exit;
+    }
+/*
     // Uzivatel se nenasel, pridame ho do databaze :-)
     if ($rows == 0) {
-        //$user = file_get_contents("https://www.googleapis.com/plus/v1/people/" . $gId . "?fields=id,displayName,image&key=" . $API_KEY);
+        //$user = file_get_contents("https://www.googleapis.com/plus/v1/people/" . $attId . "?fields=id,displayName,image&key=" . $API_KEY);
         //if (get_http_response_code($http_response_header) == 200){}
 
         try {
-            $user = $plus->people->get($gId);
+            $user = $plus->people->get($attId);
             $user_arr = array(
-                "gplus_id" => $user['id'],
+                "attendee_id" => $user['id'],
                 "user_name" => $user['displayName'],
                 "user_image" => substr($user['image']['url'], 0, -6),
                 "gender" => $user['gender'],
@@ -77,7 +81,7 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
             dibi::query('INSERT INTO leaderboard', $user_arr);
         } catch (Google_ServiceException $e) {
             if ($e->getCode() == 404) {
-                send_json_error("User " . $gId . " does not exist");
+                send_json_error("User " . $attId . " does not exist");
                 exit;
             } else {
                 send_json_error("Unexpected error");
@@ -85,22 +89,31 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
             }
         }
     }
+*/
     //zapsat achievement
     try {
         $unlock_arr = array(
-            "gplus_id" => $gId,
+            "attendee_id" => $attId,
             "achievement_id" => $data['achievement_id'],
             "org_email" => $data['org_email'],
         );
         dibi::query('INSERT INTO log', $unlock_arr);
-
-        $result = dibi::query("SELECT user_name, user_image, achievements_unlocked, leaderboard_position
+/*
+    //nahrada triggeru
+    dibi::query("UPDATE leaderboard
+                    SET achievements_unlocked = (achievements_unlocked + 1),
+                        unlocked_first = IF (unlocked_first IS NULL, NOW(), unlocked_first),
+                        unlocked_last = NOW()
+                    WHERE attendee_id = %i", $attId);
+    dibi::query("UPDATE achievements SET unlocked_count = (unlocked_count + 1) WHERE id = %i", $data['achievement_id']);
+*/
+        $result = dibi::query("SELECT CONCAT(first_name, ' ', last_name) AS user_name, user_image, achievements_unlocked, leaderboard_position
                          FROM (
                              SELECT *, @curRank := @curRank + 1 AS leaderboard_position
                              FROM leaderboard l, (SELECT @curRank := 0) r
                              ORDER BY " . $nastaveni['orderSequence'] . ") result
-                         WHERE gplus_id = %i
-                         ", $gId);
+                         WHERE attendee_id = %i
+                         ", $attId);
 
         $response = $result->fetch();
         send_json_success($response);
@@ -110,6 +123,7 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
             send_json_error("This achievement was already unlocked");
             exit;
         } else {
+//            print_r($e);
             send_json_error("Unexpected error");
             exit;
         }
@@ -119,7 +133,7 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
 
     $result = dibi::query("SELECT * FROM achievements");
     $allAchievements = $result->fetchAll();
-    $image_folder_url = "http://quest.devfest.cz/images/achievements/300/";
+    $image_folder_url = "http://mdevgame.inmite.eu/images/achievements/300/";
     foreach ($allAchievements as $achievement) {
         $achievement['basic_image'] = $image_folder_url . $achievement['basic_image'];
         $achievement['nice_image'] = $image_folder_url . $achievement['nice_image'];

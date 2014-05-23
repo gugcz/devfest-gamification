@@ -5,3 +5,4 @@ RewriteEngine on
 RewriteRule ^(login)$ login.php [L,E]
 RewriteRule ^(achievements)$ achievements.php [L,E]
 RewriteRule ^(achievements)/([a-z]*)$ achievements.php?action=$2 [L,E,QSA]
+RewriteRule ^(attendees)$ attendees.php [L,E]

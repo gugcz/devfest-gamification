@@ -12,9 +12,9 @@ require_once("libs/dibi.min.php");
 dibi::connect(array(
     'driver' => 'mysql',
     'host' => 'localhost',
-    'username' => 'gamedevfest',
-    'password' => 'qNXLLjQ692mmLNrr',
-    'database' => 'gamedevfest',
+    'username' => 'mdevgame_inmite',
+    'password' => 'CdsWsaqw.12X',
+    'database' => 'mdevgame_inmite',
     'charset' => 'utf8',
 ));
 
@@ -23,7 +23,7 @@ $result = dibi::query('SELECT * FROM settings');
 $nastaveni = $result->fetchPairs('key', 'value');
 $secretPassword = $nastaveni['secretPassword'];
 
-
+/*
 //// Nastaveni Google API
 require_once 'libs/GoogleAPI/Google_Client.php';
 require_once 'libs/GoogleAPI/contrib/Google_PlusService.php';
@@ -40,7 +40,7 @@ $client->setRedirectUri($nastaveni['API_RedirectUri']);
 $client->setDeveloperKey($nastaveni['API_KEY']);
 $client->setScopes(array('https://www.googleapis.com/auth/plus.me')); // set scope during user login
 $plus = new Google_PlusService($client);
-
+*/
 
 //// Funkce
 function my_json_decode($string)
