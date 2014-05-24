@@ -30,6 +30,7 @@ public class Sucker {
 		p("Downloading images ...");
 		for (Data.Attendee attendee : Data.ATTENDEES) {
 			File file = new File("output/" + attendee.id + ".jpg");
+            File fileLarge = new File("output/136/" + attendee.id + ".jpg");
 			if (file.exists()) {
 				p("Image for " + attendee.id + " already exists");
 			} else {
@@ -37,11 +38,15 @@ public class Sucker {
 					if (attendee.twitter.isEmpty()) {
 						String gravatarHash = calculateGravatarHash(attendee.email);
 						p("GRAVATAR Image saved to" + file.getAbsolutePath());
-						FileUtils.copyURLToFile(new URL("http://www.gravatar.com/avatar/" + gravatarHash + ".jpg?d=retro&s=48"), file);
+						FileUtils.copyURLToFile(new URL("http://www.gravatar.com/avatar/" + gravatarHash + ".jpg?d=retro&s=30"), file);
+                        FileUtils.copyURLToFile(new URL("http://www.gravatar.com/avatar/" + gravatarHash + ".jpg?d=retro&s=136"), fileLarge);
 					} else {
 						Users.User user = Api.get().create(Users.class).show(getToken(access.access_token), attendee.twitter);
 						p("TWITTER Image saved to" + file.getAbsolutePath());
-						FileUtils.copyURLToFile(new URL(user.profile_image_url), file);
+						String profile_image_url = (user.profile_image_url);
+						FileUtils.copyURLToFile(new URL(profile_image_url), file);
+                        profile_image_url = profile_image_url.replace("_normal.png", ".png");
+                        FileUtils.copyURLToFile(new URL(profile_image_url), fileLarge);
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
