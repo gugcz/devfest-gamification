@@ -3,7 +3,7 @@
         <br>
 
         <?php
-        if(!isset($authUrl)){
+        if($_SESSION['logged_in']){
             include("includes/leaderboard-login.php");
         } else {
             include("includes/leaderboard-public.php");

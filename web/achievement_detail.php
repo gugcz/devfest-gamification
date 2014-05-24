@@ -1,7 +1,7 @@
 <?php include("includes/header.php");
 $result = dibi::query("SELECT id, name, location, nice_image, basic_image, congrats_text, unlocked_time, unlocked_count FROM achievements
-                 LEFT JOIN (SELECT achievement_id, unlocked_time FROM log WHERE gplus_id = %s) d ON achievement_id = id
-                 WHERE id = %i", $me['id'], $_GET['id']);
+                 LEFT JOIN (SELECT achievement_id, unlocked_time FROM log WHERE attendee_id = %s) d ON achievement_id = id
+                 WHERE id = %i", $me['attendee_id'], $_GET['id']);
 
 $result->setType('unlocked_time', dibi::FIELD_DATETIME)->setFormat(dibi::FIELD_DATETIME, 'H:i:s');
 

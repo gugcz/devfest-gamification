@@ -10,7 +10,7 @@
             <table class="table table-striped leaderboard">
                 <tr>
                     <th>&nbsp;</th>
-                    <th colspan="2">Google+ Jméno</th>
+                    <th colspan="2">Jméno</th>
                     <th class="text-right">Achievementů</th>
                 </tr>
                 <?php
@@ -22,8 +22,18 @@
                     foreach ($result as $player) {
                         echo "<tr>
                             <td style='width: 45px;' class='text-right'>" . $i . ".</td>
-                            <td class='profile-photo'><a href='//plus.google.com/" . $player['gplus_id'] . "'><img src='" . $player['user_image'] . "?sz=30' alt='" . $player['user_name'] . "'></a></td>
-                            <td><a href='//plus.google.com/" . $player['gplus_id'] . "'>" . $player['user_name'] . "</a></td>
+                            <td class='profile-photo'><img src='/images/attendees/" . $player['user_image'] . "' alt='" . $player['first_name'] . " " . $player['last_name'] . "' width='30' height='30'></td>
+                            <td>";
+                            if($player["twitter"]){
+                            echo "
+                                <a href='//twitter.com/" . $player['twitter'] . "'>
+                                " . $player['first_name'] . " " . $player['last_name'] . "
+                                </a>";
+                            } else {
+                                echo $player['first_name'] . " " . $player['last_name'];
+                            }
+                            echo "
+                            </td>
                             <td class='text-right'>" . a($player['achievements_unlocked']) . "</td>
                         </tr>\n";
                         $i++;

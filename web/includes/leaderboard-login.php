@@ -7,26 +7,27 @@
             </div>
             <div class="panel-body">
                 <?php
-                $result = dibi::query("SELECT user_name, user_image, achievements_unlocked, leaderboard_position, players_total, unlocked_first, unlocked_last
+                $result = dibi::query("SELECT first_name, last_name, user_image, achievements_unlocked, leaderboard_position, players_total, unlocked_first, unlocked_last
                          FROM (
                              SELECT *, @curRank := @curRank + 1 AS leaderboard_position
                              FROM leaderboard l, (SELECT @curRank := 0, COUNT(*) AS players_total FROM leaderboard) r
                              ORDER BY " . $nastaveni['orderSequence'] . ") result
-                         WHERE gplus_id = %i", $me['id']);
+                         WHERE attendee_id = %i", $me['attendee_id']);
 
-                if (count($result) == 1) {
-                    $result->setType("unlocked_first", dibi::FIELD_DATETIME)->setFormat(dibi::FIELD_DATETIME, "H:i:s");
-                    $result->setType("unlocked_last", dibi::FIELD_DATETIME)->setFormat(dibi::FIELD_DATETIME, "H:i:s");
-                    $user = $result->fetch();
+                $result->setType("unlocked_first", dibi::FIELD_DATETIME)->setFormat(dibi::FIELD_DATETIME, "H:i:s");
+                $result->setType("unlocked_last", dibi::FIELD_DATETIME)->setFormat(dibi::FIELD_DATETIME, "H:i:s");
+                $user = $result->fetch();
+
+                if ($user['achievements_unlocked'] > 0) {
                     $mojePozice = $user['leaderboard_position'];
                     $result = dibi::query("SELECT COUNT(*) FROM achievements");
                     $achievements_count = $result->fetchSingle();
                     echo " <div class='row'>
                         <div class='col-sm-5 col-md-4 col-lg-3'>
-                            <img style='margin-right: 15px;' src='" . $user['user_image'] . "?sz=136'>
+                            <img style='margin-right: 15px;' src='/images/attendees/" . $user['user_image'] . "' width='136'>
                         </div>\n";
                     echo "<div class='col-sm-7 col-md-8 col-lg-9'><table class='table-profil'><tr><td colspan='2'>
-                            <h3 style='margin-top: 0;'>" . $user['user_name'] . "</h3>
+                            <h3 style='margin-top: 0;'>" . $user['first_name'] . " " . $user['last_name'] . "</h3>
                         </td></tr>\n";
                     echo "<tr>
                         <td class='text-muted'>Moje pořadí</td><td><span class='badge'>" . $user['leaderboard_position'] . ".</span> z " . $user['players_total'] . "</td>
@@ -56,7 +57,7 @@
             <table class="table table-striped table-hover leaderboard">
                 <tr>
                     <th>&nbsp;</th>
-                    <th colspan="2">Google+ Jméno</th>
+                    <th colspan="2">Jméno</th>
                     <th class="text-right">Achievementů</th>
                 </tr>
                 <?php
@@ -80,8 +81,18 @@
                         }
                         echo "<tr" . $podbarveni . ">
                             <td style='width: 45px;' class='text-right'>" . $i . ".</td>
-                            <td class='profile-photo'><a href='//plus.google.com/".$player['gplus_id']."'><img src='" . $player['user_image'] . "?sz=30' alt=''></a></td>
-                            <td><a href='//plus.google.com/".$player['gplus_id']."'>" . $player['user_name'] . "</a></td>
+                            <td class='profile-photo'><img src='/images/attendees/" . $player['user_image'] . "' alt='" . $player['first_name'] . " " . $player['last_name'] . "' width='30' height='30'></td>
+                            <td>";
+                            if($player["twitter"]){
+                            echo "
+                                <a href='//twitter.com/" . $player['twitter'] . "'>
+                                " . $player['first_name'] . " " . $player['last_name'] . "
+                                </a>";
+                            } else {
+                                echo $player['first_name'] . " " . $player['last_name'];
+                            }
+                            echo "
+                            </td>
                             <td class='text-right'>" . a($player['achievements_unlocked']) . "</td>
                         </tr>\n";
                         $i++;
@@ -98,7 +109,7 @@
             <table class="table table-striped table-hover leaderboard">
                 <tr>
                     <th>&nbsp;</th>
-                    <th colspan="2">Google+ Jméno</th>
+                    <th colspan="2">Jméno</th>
                     <th class="text-right">Achievementů</th>
                 </tr>
                 <?php
@@ -110,8 +121,18 @@
                     foreach ($result as $player) {
                         echo "<tr>
                             <td style='width: 45px;' class='text-right'>" . $i . ".</td>
-                            <td class='profile-photo'><a href='//plus.google.com/".$player['gplus_id']."'><img src='" . $player['user_image'] . "?sz=30' alt=''></a></td>
-                            <td><a href='//plus.google.com/".$player['gplus_id']."'>" . $player['user_name'] . "</a></td>
+                            <td class='profile-photo'><img src='/images/attendees/" . $player['user_image'] . "' alt='" . $player['first_name'] . " " . $player['last_name'] . "' width='30' height='30'></td>
+                            <td>";
+                            if($player["twitter"]){
+                            echo "
+                                <a href='//twitter.com/" . $player['twitter'] . "'>
+                                " . $player['first_name'] . " " . $player['last_name'] . "
+                                </a>";
+                            } else {
+                                echo $player['first_name'] . " " . $player['last_name'];
+                            }
+                            echo "
+                            </td>
                             <td class='text-right'>" . a($player['achievements_unlocked']) . "</td>
                         </tr>\n";
                         $i++;

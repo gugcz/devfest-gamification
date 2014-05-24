@@ -1,15 +1,15 @@
 <div class="panel panel-blue">
     <div class="panel-heading">
-        <?php if(isset($authUrl)){
+        <?php if($_SESSION['logged_in'] === true){
+            $result = dibi::query("SELECT id, name, location, nice_image, basic_image, congrats_text, unlocked_time FROM achievements
+                 LEFT JOIN (SELECT achievement_id, unlocked_time FROM log WHERE attendee_id = %i) d ON achievement_id = id
+                 ORDER BY unlocked_time DESC, id", $me['attendee_id']);
+            ?>
+            <span class="glyphicon glyphicon-tags"></span> Moje Achievementy
+        <?php } else {
             $result = dibi::query("SELECT id, basic_image, name, location FROM achievements ORDER BY id");
             ?>
             <span class="glyphicon glyphicon-tags"></span> Seznam Achievementů
-        <?php } else {
-            $result = dibi::query("SELECT id, name, location, nice_image, basic_image, congrats_text, unlocked_time FROM achievements
-                 LEFT JOIN (SELECT achievement_id, unlocked_time FROM log WHERE gplus_id = %s) d ON achievement_id = id
-                 ORDER BY unlocked_time DESC, id", $me['id']);
-            ?>
-            <span class="glyphicon glyphicon-tags"></span> Moje Achievementy
         <?php } ?>
     </div>
     <div class="panel-body row">

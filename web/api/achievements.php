@@ -116,6 +116,8 @@ if (isset($_GET['action']) && $_GET['action'] == "unlock") {
                          ", $attId);
 
         $response = $result->fetch();
+        $image_folder_url = "http://mdevgame.inmite.eu/images/attendees/";
+        $response['user_image'] = $image_folder_url . $response['user_image'];
         send_json_success($response);
         exit;
     } catch (DibiDriverException $e) {

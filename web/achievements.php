@@ -5,7 +5,7 @@
         <div class="row">
             <?php if (!isset($authUrl)) { // Uživatel přihlášen
                 $result = dibi::query("SELECT id, name, location, nice_image, basic_image, congrats_text, unlocked_time FROM achievements
-                 LEFT JOIN (SELECT achievement_id, unlocked_time FROM log WHERE gplus_id = %s) d ON achievement_id = id
+                 LEFT JOIN (SELECT achievement_id, unlocked_time FROM log WHERE attendee_id = %s) d ON achievement_id = id
                  ORDER BY unlocked_time DESC", $me['id']);
 
                 foreach ($result as $achievement) {
@@ -40,7 +40,7 @@
                     echo "
                     <div class='col-sm-4 col-md-3 col-lg-3'>
                         <div class='thumbnail achievement achievement-public'>
-                            <img src='" . $achievement['basic_image'] . "' width='120'>
+                            <img src='images/achievements/230/" . $achievement['basic_image'] . "' width='120'>
                             <div class='caption text-center'>
                                 <h3>" . $achievement['name'] . "</h3>
                                 <p>" . $achievement['location'] . "</p>
