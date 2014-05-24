@@ -47,6 +47,7 @@ public abstract class AppFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Views.inject(this, view);
+        hideProgress();
         setupViews(view);
 	    mView = view;
         if (savedInstanceState==null) {
