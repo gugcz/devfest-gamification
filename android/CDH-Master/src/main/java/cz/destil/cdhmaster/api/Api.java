@@ -9,10 +9,10 @@ import retrofit.RetrofitError;
  */
 public class Api {
 
-    public static final String URL = "http://mdevgame.apiary-mock.com/api";
+    public static final String URL = "http://mdevgame.inmite.eu/api";
 
     public static RestAdapter get() {
-        return new RestAdapter.Builder().setServer(URL).setLogLevel(RestAdapter.LogLevel.FULL).setLog(new RestAdapter.Log() {
+        return new RestAdapter.Builder().setServer(URL).setLogLevel(RestAdapter.LogLevel.BASIC).setLog(new RestAdapter.Log() {
             @Override
             public void log(String s) {
                 DebugLog.d(s);
