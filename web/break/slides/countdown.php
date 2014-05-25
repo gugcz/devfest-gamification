@@ -20,24 +20,24 @@ if (isset($_GET['time']))
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DevFest Praha 2013">
+    <meta name="description" content="mDevGame 2014">
     <meta name="author" content="Jirka Korejtko">
 
-    <title>DevFest Praha 2013</title>
+    <title>mDevGame 2014</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="http://quest.devfest.cz/css/bootstrap.css" rel="stylesheet">
+    <link href="http://mdevgame.inmite.eu/css/bootstrap.css" rel="stylesheet">
     <!-- Bootstrap theme -->
-    <link href="http://quest.devfest.cz/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="http://mdevgame.inmite.eu/css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/css/devfest-style.css" rel="stylesheet">
-    <link href="http://quest.devfest.cz/css/theme.css" rel="stylesheet">
+    <link href="/break/css/devfest-style.css" rel="stylesheet">
+    <link href="http://mdevgame.inmite.eu/css/theme.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="http://quest.devfest.cz/js/html5shiv.js"></script>
-    <script src="http://quest.devfest.cz/js/respond.min.js"></script>
+    <script src="http://mdevgame.inmite.eu/js/html5shiv.js"></script>
+    <script src="http://mdevgame.inmite.eu/js/respond.min.js"></script>
     <![endif]-->
     <style>
         body {
@@ -69,7 +69,7 @@ if (isset($_GET['time']))
 <body>
 <div class="totalcenter">
     <div class="container">
-        <img src="http://quest.devfest.cz/images/footer.png" class="img-responsive" style="margin: auto;">
+        <img src="http://mdevgame.inmite.eu/images/footer.png" class="img-responsive" style="margin: auto;">
 
         <span class="next">Následuje</span>
 
@@ -101,16 +101,16 @@ if (isset($_GET['time']))
         </div>
         <div style="height: 93px"></div>
 
-        <img src="http://quest.devfest.cz/images/footer.png" class="img-responsive" style="margin: auto;">
+        <img src="http://mdevgame.inmite.eu/images/footer.png" class="img-responsive" style="margin: auto;">
     </div>
 </div>
-<script type='text/javascript' src='http://quest.devfest.cz/js/jquery.min.js'></script>
-<script type='text/javascript' src='http://quest.devfest.cz/js/jquery.countdown.min.js'></script>
+<script type='text/javascript' src='http://mdevgame.inmite.eu/js/jquery.min.js'></script>
+<script type='text/javascript' src='http://mdevgame.inmite.eu/js/jquery.countdown.min.js'></script>
 <script type='text/javascript'>
     $(document).ready(function () {
         /* Countdown */
         if ($('#countdown').size() > 0) {
-            $('#countdown').countdown(new Date("November 23, 2013 <?php echo $time; ?>:00"), function (event) {
+            $('#countdown').countdown(new Date("May 31, 2014 <?php echo $time; ?>:00"), function (event) {
                 var $this = $(this);
                 switch (event.type) {
                     case "seconds":

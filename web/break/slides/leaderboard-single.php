@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DevFest Quest">
+    <meta name="description" content="mDevGame">
     <meta name="author" content="Jirka Korejtko">
 
-    <title>DevFest Quest</title>
+    <title>mDevGame</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://quest.devfest.cz/css/bootstrap.css" rel="stylesheet">
@@ -41,9 +41,9 @@
 <body>
 <div class="totalcenter">
     <div class="container">
-        <img src="http://quest.devfest.cz/images/footer.png" class="img-responsive" style="margin: auto;">
+        <img src="http://mdevgame.inmite.eu/images/footer.png" class="img-responsive" style="margin: auto;">
     </div>
-    <h2 style="text-align: center; font-weight: bold; margin: 29px 0;">Leaderboard achievementů - <span style="color: #0080c5;">quest.devfest.cz</span></h2>
+    <h2 style="text-align: center; font-weight: bold; margin: 29px 0;">Leaderboard achievementů - <span style="color: #0080c5;">mdevgame.inmite.eu</span></h2>
 
     <div class="container">
         <div class="row">
@@ -60,7 +60,7 @@
                         <table class="table table-striped leaderboard">
 
                             <?php
-                            $result = dibi::query("SELECT * FROM leaderboard ORDER BY " . $nastaveni['orderSequence'] . " %ofs %lmt", $j * $pocet, $pocet);
+                            $result = dibi::query("SELECT * FROM leaderboard WHERE achievements_unlocked > 0 ORDER BY " . $nastaveni['orderSequence'] . " %ofs %lmt", $j * $pocet, $pocet);
                             if (count($result) == 0 && $j == 1) {
                                 echo "<tr><td colspan='4'>Do soutěže se zapojilo méně než ".$pocet." účastníků</td></tr>";
                             } elseif (count($result) == 0) {
@@ -71,8 +71,8 @@
                                 foreach ($result as $player) {
                                     echo "<tr>
                             <td style='width: 45px;' class='text-right'>" . $i . ".</td>
-                            <td class='profile-photo'><img src='" . $player['user_image'] . "?sz=40' alt='" . $player['user_name'] . "'></td>
-                            <td class='player_name'>" . $player['user_name'] . "</td>
+                            <td class='profile-photo'><img src='//mdevgame.inmite.eu/images/attendees/" . $player['user_image'] . "' alt='" . $player['first_name'] . " " . $player['last_name'] . "' width='30'></td>
+                            <td class='player_name'>" . $player['first_name'] . " " . $player['last_name'] . "</td>
                             <td class='text-right'>" . a($player['achievements_unlocked']) . "</td>
                         </tr>\n";
                                     $i++;
@@ -86,7 +86,7 @@
         </div>
     </div>
     <div style="height: 8px"></div>
-    <div class="container" style="position: absolute; bottom: 0; width: 100%;">
+    <div class="container" style="position: absolute; bottom: 0; left: 0; right: 0; width: 100%;">
         <img src="http://quest.devfest.cz/images/footer.png" class="img-responsive" style="margin: auto;">
     </div>
 </div>

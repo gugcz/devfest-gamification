@@ -1,16 +1,14 @@
-AuthUserFile /var/www/html/game.devfest.cz/break/.htpasswd
+#AuthUserFile /var/www/html/game.devfest.cz/break/.htpasswd
 AuthGroupFile /dev/null
-AuthName "Pristup k DevFest Praha 2013 BreakWall"
+AuthName "Pristup k mDevCamp 2014 BreakWall"
 AuthType Basic
 
-require valid-user
+#require valid-user
 
 # URL rewriting module activation
 RewriteEngine on
 
 # URL rewriting rules
-RewriteCond %{HTTP_HOST} ^quest.devfest.cz
-RewriteRule ^(.*)$ http://break.devfest.cz/$1 [R=301,QSA]
 
 RewriteRule ^(leaderboard-single)$ slides/leaderboard-single.php [L,E]
 RewriteRule ^(promo)$ slides/promo.php [L,E]

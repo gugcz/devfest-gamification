@@ -12,9 +12,9 @@ require_once("libs/dibi.min.php");
 dibi::connect(array(
     'driver' => 'mysql',
     'host' => 'localhost',
-    'username' => 'gamedevfest',
-    'password' => 'qNXLLjQ692mmLNrr',
-    'database' => 'gamedevfest',
+    'username' => 'mdevgame_inmite',
+    'password' => 'CdsWsaqw.12X',
+    'database' => 'mdevgame_inmite',
     'charset' => 'utf8',
 ));
 
