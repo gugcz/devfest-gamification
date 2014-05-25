@@ -45,8 +45,10 @@ public class Sucker {
 						p("TWITTER Image saved to" + file.getAbsolutePath());
 						String profile_image_url = (user.profile_image_url);
 						FileUtils.copyURLToFile(new URL(profile_image_url), file);
-                        profile_image_url = profile_image_url.replace("_normal.png", ".png");
+						resizeImage(file,30);
+                        profile_image_url = profile_image_url.replace("_normal.jpg", ".jpg");
                         FileUtils.copyURLToFile(new URL(profile_image_url), fileLarge);
+                        resizeImage(fileLarge,136);
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -71,4 +73,18 @@ public class Sucker {
 	private static String getToken(String bearer) {
 		return "Bearer " + bearer;
 	}
+	private static void resizeImage(File file, int size) {
+		try{
+        // scale image on disk
+        BufferedImage originalImage = ImageIO.read(file);
+        int type = originalImage.getType() == 0? BufferedImage.TYPE_INT_ARGB
+                                               : originalImage.getType();
+
+        BufferedImage resizeImageJpg = resizeImage(originalImage, type, size, size);
+        ImageIO.write(resizeImageJpg, "jpg", file); 
+
+       } catch(IOException e) {
+           System.out.println(e.getMessage());
+       }
+    }
 }
