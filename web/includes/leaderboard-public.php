@@ -14,7 +14,7 @@
                     <th class="text-right">Achievementů</th>
                 </tr>
                 <?php
-                $result = dibi::query("SELECT * FROM leaderboard ORDER BY " . $nastaveni['orderSequence']);
+                $result = dibi::query("SELECT * FROM leaderboard WHERE achievements_unlocked > 0 ORDER BY " . $nastaveni['orderSequence']);
                 if (count($result) == 0) {
                     echo "<tr><td>&nbsp;</td><td>&nbsp;</td><td>Zatím nikdo nesoutěžil</td><td>&nbsp;</td></tr>";
                 } else {
