@@ -10,7 +10,18 @@ body .navbar {
     padding: 10px;
     color: #ffffff;
 }
-
+.navbar .navbar-text {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+@media (max-width: 768px) {
+    .navbar .navbar-text {
+        width: 90%;
+    }
+    .navbar .navbar-form {
+        margin: 0;
+    }
+}
 @media (max-width: 768px) {
     .navbar .navbar-brand {
         padding: 15px;
@@ -289,3 +300,25 @@ footer .copyright {
         margin: 0 auto;
     }
 }
+/* Naseptavac v navbaru */
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+  }
+  .custom-combobox-input {
+    margin: 0;
+    padding: 0.3em;
+  }
+  .navbar-form {
+    margin-top: 3px;
+    margin-bottom: 3px;
+     margin-right: -10px;
+  }
+  .navbar-form .btn {
+    height: 32px;
+    margin-top: -2px;
+  }
+  .ui-autocomplete {
+    font-size: 12px;
+    z-index: 1050;
+  }

@@ -50,137 +50,19 @@ if (!isset($_POST['login_id']) && isset($_SESSION['logged_in'])) {
     <script type='text/javascript' src='/js/jquery.min.js'></script>
     <script type='text/javascript' src='/js/bootstrap.min.js'></script>
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script type='text/javascript' src="/js/autocomplete.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-    <style>
-  .custom-combobox {
-    position: relative;
-    display: inline-block;
-  }
-  .custom-combobox-input {
-    margin: 0;
-    padding: 0.3em;
-  }
-  .navbar-form {
-    margin-top: 3px;
-    margin-bottom: 3px;
-     margin-right: -10px;
-  }
-  .navbar-form .btn {
-    height: 32px;
-    margin-top: -2px;
-  }
-  .ui-autocomplete {
-    font-size: 12px;
-  }
-  </style>
   <script>
-  (function( $ ) {
-    $.widget( "custom.combobox", {
-      _create: function() {
-        this.wrapper = $( "<span>" )
-          .addClass( "custom-combobox" )
-          .insertAfter( this.element );
- 
-        this.element.hide();
-        this._createAutocomplete();
-      },
- 
-      _createAutocomplete: function() {
-        var selected = this.element.children( ":selected" ),
-          value = selected.val() ? selected.text() : "";
- 
-        this.input = $( "<input>" )
-          .appendTo( this.wrapper )
-          .val( value )
-          .attr( "title", "" )
-          .addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-all" )
-          .autocomplete({
-            delay: 0,
-            minLength: 0,
-            source: $.proxy( this, "_source" )
-          })
-          .tooltip({
-            tooltipClass: "ui-state-highlight"
-          });
- 
-        this._on( this.input, {
-          autocompleteselect: function( event, ui ) {
-            ui.item.option.selected = true;
-            this._trigger( "select", event, {
-              item: ui.item.option
-            });
-            this.element.trigger("change");
-          },
- 
-          autocompletechange: "_removeIfInvalid"
-        });
-      },
- 
-      _source: function( request, response ) {
-        var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
-        response( this.element.children( "option" ).map(function() {
-          var text = $( this ).text();
-          if ( this.value && ( !request.term || matcher.test(text) ) )
-            return {
-              label: text,
-              value: text,
-              option: this
-            };
-        }) );
-      },
- 
-      _removeIfInvalid: function( event, ui ) {
- 
-        // Selected an item, nothing to do
-        if ( ui.item ) {
-          return;
-        }
- 
-        // Search for a match (case-insensitive)
-        var value = this.input.val(),
-          valueLowerCase = value.toLowerCase(),
-          valid = false;
-        this.element.children( "option" ).each(function() {
-          if ( $( this ).text().toLowerCase() === valueLowerCase ) {
-            this.selected = valid = true;
-            return false;
-          }
-        });
- 
-        // Found a match, nothing to do
-        if ( valid ) {
-          return;
-        }
- 
-        // Remove invalid value
-        this.input
-          .val( "" )
-          .attr( "title", value + " neodpovídá žádnému soutěžícímu" )
-          .tooltip( "open" );
-        this.element.val( "" );
-        this._delay(function() {
-          this.input.tooltip( "close" ).attr( "title", "" );
-        }, 2500 );
-        this.input.data( "ui-autocomplete" ).term = "";
-      },
- 
-      _destroy: function() {
-        this.wrapper.remove();
-        this.element.show();
-      }
-    });
-  })( jQuery );
- 
   $(function() {
     $( "#combobox" ).combobox();
     $( "#combobox" ).change(function() {
-             $( "#login_form" ).submit();
-         });
+        $( "#login_form" ).submit();
+    });
   });
   </script>
 </head>
@@ -230,12 +112,12 @@ if (!isset($_POST['login_id']) && isset($_SESSION['logged_in'])) {
                                         <ul class='dropdown-menu'>
                                             <li><a href='?logout'>Odhlásit</a></li>
                                         </ul>
-                                      </li>";
+                                      </li></ul>";
 
                         } else {
-                            echo "<li>
+                            echo "
                             <form action='/' method='POST' class='navbar-form' id='login_form'>
-                                <label style='color:white;'>Vaše jméno: </label>
+                                <span style='color:white;' class='navbar-text'>Vaše jméno: </span>
                                 <select id='combobox' name='login_id'>
                                     <option value=''>Vyberte své jméno...</option>";
                             $result = dibi::query("SELECT attendee_id, first_name, last_name, email, duplicate_name FROM leaderboard");
@@ -249,11 +131,11 @@ if (!isset($_POST['login_id']) && isset($_SESSION['logged_in'])) {
                                   </select>
                                   <input type='submit' class='btn' value='Přihlásit'>
                             </form>
-                            </li>";
+                            ";
                         }
                         ?>
 
-                    </ul>
+                    
                 </div>
                 <!--/.nav-collapse -->
             </div>
