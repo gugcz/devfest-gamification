@@ -46,10 +46,11 @@ public class Sucker {
 					} else {
 						Users.User user = Api.get().create(Users.class).show(getToken(access.access_token), attendee.twitter);
 						p("TWITTER Image saved to" + file.getAbsolutePath());
-						String profile_image_url = (user.profile_image_url);
+						String profile_image_url = user.profile_image_url;
+						p("Profile URL: "+profile_image_url);
 						FileUtils.copyURLToFile(new URL(profile_image_url), file);
 						resizeImage(file, 30);
-						profile_image_url = profile_image_url.replace("_normal.jpg", ".jpg");
+						profile_image_url = profile_image_url.replace("_normal", "");
 						FileUtils.copyURLToFile(new URL(profile_image_url), fileLarge);
 						resizeImage(fileLarge, 136);
 					}
