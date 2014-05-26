@@ -42,7 +42,7 @@ public class UnlockFragment extends AppFragment {
         Picasso.with(App.get()).load(achievement.basic_image).into(vBasicImage);
         vName.setText(achievement.name);
         vLocation.setText(achievement.location);
-	    vAttendeeName.setAdapter(new AttendeeAdapter(getActivity(), android.R.layout.simple_dropdown_item_1line, Preferences.getAttendees()));
+	    vAttendeeName.setAdapter(new AttendeeAdapter(getActivity(), R.layout.view_autocomplete, Preferences.getAttendees()));
 	    vAttendeeName.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 		    @Override

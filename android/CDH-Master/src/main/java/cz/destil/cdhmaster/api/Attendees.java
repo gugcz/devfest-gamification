@@ -21,10 +21,16 @@ public interface Attendees {
 		public long id;
 		public String first_name;
 		public String last_name;
+		public String email;
+		public boolean duplicate_name;
 
 		@Override
 		public String toString() {
-			return first_name + " " + last_name;
+			String text = first_name + " " + last_name;
+			if (duplicate_name) {
+				text += " (" + email + ")";
+			}
+			return text;
 		}
 	}
 }
