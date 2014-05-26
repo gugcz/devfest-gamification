@@ -8,8 +8,9 @@ repositories {
 }
 
 dependencies {
-    compile 'com.squareup.retrofit:retrofit:+'
-    compile 'com.squareup.okhttp:okhttp:+'
+    compile 'com.squareup.retrofit:retrofit:1.+'
+    compile 'com.squareup.okhttp:okhttp:1.+'
     compile 'commons-codec:commons-codec:+'
     compile 'org.apache.commons:commons-io:+'
+    compile 'org.imgscalr:imgscalr-lib:4.2'
 }
