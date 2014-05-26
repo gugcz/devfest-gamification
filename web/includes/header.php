@@ -110,16 +110,16 @@ if (!isset($_POST['login_id']) && isset($_SESSION['logged_in'])) {
                                         <a href='#' style='padding-top: 5px; padding-bottom: 5px;' class='dropdown-toggle' data-toggle='dropdown'>
                                             <img src='/images/attendees/" . $me['user_image'] . "' width='30' height='30'>&nbsp;&nbsp;<strong>". $me['first_name'] . " ". $me['last_name'] . "</strong><b class='caret'></b></a>
                                         <ul class='dropdown-menu'>
-                                            <li><a href='?logout'>Odhlásit</a></li>
+                                            <li><a href='?logout'>Jiný hráč</a></li>
                                         </ul>
                                       </li></ul>";
 
                         } else {
                             echo "
                             <form action='/' method='POST' class='navbar-form' id='login_form'>
-                                <span style='color:white;' class='navbar-text'>Vaše jméno: </span>
+                                <span style='color:white;' class='navbar-text'>Zadejte vaše jméno a uvidíte jak na tom jste: </span>
                                 <select id='combobox' name='login_id'>
-                                    <option value=''>Vyberte své jméno...</option>";
+                                    <option value=''>Vyberte své jméno</option>";
                             $result = dibi::query("SELECT attendee_id, first_name, last_name, email, duplicate_name FROM leaderboard");
                             $allAttendees = $result->fetchAll();
                             foreach ($allAttendees as $attendee) {
@@ -129,7 +129,7 @@ if (!isset($_POST['login_id']) && isset($_SESSION['logged_in'])) {
                             }
                             echo "
                                   </select>
-                                  <input type='submit' class='btn' value='Přihlásit'>
+                                  <!--<input type='submit' class='btn' value='Přihlásit'>-->
                             </form>
                             ";
                         }
