@@ -24,7 +24,7 @@
                     $achievements_count = $result->fetchSingle();
                     echo " <div class='row'>
                         <div class='col-sm-5 col-md-4 col-lg-3'>
-                            <img style='margin-right: 15px;' src='/images/attendees/" . $user['user_image'] . "' width='136'>
+                            <img style='margin-right: 15px;' src='/images/attendees/136/" . $user['user_image'] . "' width='136'>
                         </div>\n";
                     echo "<div class='col-sm-7 col-md-8 col-lg-9'><table class='table-profil'><tr><td colspan='2'>
                             <h3 style='margin-top: 0;'>" . $user['first_name'] . " " . $user['last_name'] . "</h3>
