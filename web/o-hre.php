@@ -7,7 +7,7 @@
                 <p style="font-style: italic; text-align: justify;">
                     mDevGame propojuje doprovodný program na mDevCampu.
                     Sbírejte achievementy, sledujte jak jste na tom v leaderboardu.
-                    <strong>10 nejlepších dostane hodnotnou cenu na závěrečné keynote.</strong>
+                    <strong>10 nejlepších má šanci na výhru na závěrečné keynote.</strong>
                 </p>
 
                 <h2>Pravidla hry</h2>
@@ -31,7 +31,7 @@
                         Ke konci mDevCampu se určitě dostavte na závěrečnou keynote, kde proběhne vyhlášení (zejména když budete na vyšších příčkách leaderboardu).
                     </li>
                     <li>
-                        Cenu dostane 10 nejlepších. Mezi těmi 10ti se bude losovat, kdo kterou cenu vyhraje. Ceny jsou různé gadgety a geeky hračky, nejhodnotnější je FitBit Flex.
+                        Ceny se budou losovat mezi 10ti nejlepšími. Ceny jsou různé gadgety a geeky hračky, nejhodnotnější je FitBit Flex.
                     </li>
                     <li>
                         Pokud máte k naší hře jakékoli další dotazy, neváhejte se zeptat na registracích.
