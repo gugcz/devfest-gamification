@@ -31,7 +31,7 @@
                         Ke konci mDevCampu se určitě dostavte na závěrečnou keynote, kde proběhne vyhlášení (zejména když budete na vyšších příčkách leaderboardu).
                     </li>
                     <li>
-                        Cenu dostane 10 nejlepších. Mezi těmi 10ti se bude losovat, kdo kterou cenu vyhraje. Ceny jsou různé gadgety a geeky hračky, nejhodnotnější je FitBit Flex.
+                        Cenu dostane 10 nejlepších. Mezi těmi deseti se bude losovat, kdo kterou cenu vyhraje. Ceny jsou různé gadgety a geeky hračky, nejhodnotnější je FitBit Flex.
                     </li>
                     <li>
                         Pokud máte k naší hře jakékoli další dotazy, neváhejte se zeptat na registracích.
