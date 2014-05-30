@@ -1,10 +1,10 @@
-AuthUserFile /var/www/html/game.devfest.cz/break/.htpasswd
+AuthUserFile /home/custom/i/inmite/web/mdevgame.inmite.eu/break/.htpasswd
 AuthGroupFile /dev/null
-AuthName "Pristup k DevFest Praha 2013 TEST API"
+AuthName "Pristup k mDevCamp 2014 TEST API"
 AuthType Basic
 
 <Files "test.php">
-#    require valid-user
+    require valid-user
 </Files>
 
 # URL rewriting module activation
@@ -16,4 +16,4 @@ RewriteRule ^(o-hre)$ o-hre.php [L,E]
 RewriteRule ^(achievements)$ achievements.php [L,E]
 RewriteRule ^(achievement)-([0-9]*)$ achievement_detail.php?id=$2 [L,E,QSA]
 
-RewriteRule ^(demo)$ http://break.devfest.cz/ [R=301,QSA]
+#RewriteRule ^(demo)$ http://break.devfest.cz/ [R=301,QSA]

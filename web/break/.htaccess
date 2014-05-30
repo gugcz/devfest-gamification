@@ -1,9 +1,9 @@
-#AuthUserFile /var/www/html/game.devfest.cz/break/.htpasswd
+AuthUserFile /home/custom/i/inmite/web/mdevgame.inmite.eu/break/.htpasswd
 AuthGroupFile /dev/null
 AuthName "Pristup k mDevCamp 2014 BreakWall"
 AuthType Basic
 
-#require valid-user
+require valid-user
 
 # URL rewriting module activation
 RewriteEngine on
@@ -11,7 +11,8 @@ RewriteEngine on
 # URL rewriting rules
 
 RewriteRule ^(leaderboard-single)$ slides/leaderboard-single.php [L,E]
-RewriteRule ^(promo)$ slides/promo.php [L,E]
-RewriteRule ^(countdown)$ slides/countdown.php [L,E,QSA]
+#RewriteRule ^(promo)$ slides/promo.php [L,E]
+#RewriteRule ^(countdown)$ slides/countdown.php [L,E,QSA]
 RewriteRule ^(partneri)-([0-9]*)$ slides/partneri.php?part=$2 [L,E,QSA]
-RewriteRule ^(twtwall)-([0-9]*)$ twtwall/index.php?id=$2 [L,E,QSA]
+#RewriteRule ^(twtwall)-([0-9]*)$ twtwall/index.php?id=$2 [L,E,QSA]
+RewriteRule ^(twitterwall)$ slides/twitterwall.php [L,E]
