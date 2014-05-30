@@ -22,15 +22,13 @@ import cz.destil.cdhmaster.api.Attendees;
  */
 public class AttendeeAdapter extends ArrayAdapter<Attendees.Attendee> {
 
-	List<Attendees.Attendee> mAttendees;
 
 	public AttendeeAdapter(Context context, int resource, List<Attendees.Attendee> objects) {
 		super(context, resource, objects);
-		mAttendees = objects;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		return mAttendees.get(position).id;
+		return getItem(position).id;
 	}
 }
