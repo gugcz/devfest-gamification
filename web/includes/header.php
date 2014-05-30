@@ -89,7 +89,7 @@ if (!isset($_POST['login_id']) && isset($_SESSION['logged_in'])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/" title="DevFest Game">
+                <a class="navbar-brand" href="/?logout" title="DevFest Game">
                     mDevGame
                 </a>
                 </div>
