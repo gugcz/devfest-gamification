@@ -437,6 +437,7 @@
     // all first requests go via live
     if (!caching || options.page <= 1 || (caching && sessionStorage.getItem('twitterlib.page' + options.page) == null)) {
       script.src = url;
+      script.type = 'text/javascript';
       script.id = 'twitterlib' + guid;
       head.appendChild(script);
     } else if (caching) {

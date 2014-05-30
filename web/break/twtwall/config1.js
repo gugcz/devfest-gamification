@@ -1,11 +1,11 @@
 var config = {
   // Twitter API (Proxy) URL
-  baseUrl: 'http://quest.devfest.cz:7890',
+  baseUrl: 'http://caslav.studiopress.cz:7890',
 
   debug: false,
-  title: 'DevFest Praha 2013 TwitterWall',
+  title: 'mDevCamp 2014 TwitterWall',
 
-  search: '#DevFestCZ',
+  search: '#mDevCamp',
   //list: 'fullfrontalconf/delegates11', // optional, just comment it out if you don't want it
 
   timings: {
