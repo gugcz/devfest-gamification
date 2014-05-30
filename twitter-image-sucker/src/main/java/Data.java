@@ -11,7 +11,6 @@
 public class Data {
 	public static final Attendee[] ATTENDEES = {
 		new Attendee(1,"srakyi","michal@inmite.eu"),
-		new Attendee(2,"","jaromir@inmite.eu"),
 		new Attendee(4,"","hricisin@bart.sk"),
 		new Attendee(5,"","zachluk1@gmail.com"),
 		new Attendee(6,"AdamSuba","mail@adamsuba.cz"),
@@ -299,7 +298,33 @@ public class Data {
 		new Attendee(320,"riczosh","riczosh@gmail.com"),
 		new Attendee(321,"","jan.misar@ackee.cz"),
 		new Attendee(322,"","petr.sima@ackee.cz"),
-		new Attendee(323,"","petr.schneider@ackee.cz")
+		new Attendee(323,"","petr.schneider@ackee.cz"),
+		new Attendee(324,"pavel_marek","paulmark@centrum.cz"),
+		new Attendee(325,"PetrMazanec","petr.mazanec@mautilus.com"),
+		new Attendee(326,"","lukas@mautilus.com"),
+		new Attendee(327,"romanhosek","roman.hosek@mautilus.com"),
+		new Attendee(328,"VitekJezek","me@vitekjezek.com"),
+		new Attendee(329,"","vratislav.zima@quanti.cz"),
+		new Attendee(330,"mrybi","michaela.rybickova@motejl.cz"),
+		new Attendee(331,"","mikulas.kroupa@postbellum.cz"),
+		new Attendee(332,"viktorp","viktor.paggio@bariery.cz"),
+		new Attendee(333,"","jan.prasek@skoda-auto.cz"),
+		new Attendee(334,"","robert.jevcic@gmail.com"),
+		new Attendee(335,"BiskupPetr","petr_biskup@cz.ibm.com"),
+		new Attendee(336,"","jan_sovka@cz.ibm.com"),
+		new Attendee(337,"","ondrej.hubacek@cz.ibm.com"),
+		new Attendee(338,"","j.vanicek@samsung.com"),
+		new Attendee(339,"","sefl.dominik@yahoo.com"),
+		new Attendee(340,"","korastom@gmail.com"),
+		new Attendee(341,"","ian.hook@lipalearning.com"),
+		new Attendee(342,"petasittek","peta.sittek@lipalearning.com"),
+		new Attendee(343,"FreshkaCZ","adela@mikschik.cz"),
+		new Attendee(344,"","jiri.vanek@emtc.cz"),
+		new Attendee(345,"","natalie68@post.cz"),
+		new Attendee(346,"","o.kucerak@samsung.cz"),
+		new Attendee(347,"","libor.rysavy@gooddata.com"),
+		new Attendee(348,"","petr.benes@gooddata.com"),
+		new Attendee(349,"","jan.nanista@gooddata.com")
 	};
 
 	public static class Attendee {
