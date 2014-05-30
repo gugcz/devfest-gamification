@@ -28,8 +28,8 @@ if(isset($_POST['content'])){
 <body>
 <h1>CDH API Test Interface</h1>
 Test IDs:<br>
-Jirka Korejtko: 1<br>
-David Vávra: 2<br>
+Michal Šrajer: 1<br>
+David Vávra: 59<br>
 
 <a href="test.php?clear">Clear Database!</a>
 <h2>Request</h2>
