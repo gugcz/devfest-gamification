@@ -14,7 +14,7 @@ breakWallAppModule.controller('BreakWallCtrl', function BreakWallCtrl($scope) {
     }());
 
     (function setupFirebase() {
-        var presetsRef = new Firebase('https://devfest-breakwall.firebaseio.com/presets/');
+        var presetsRef = new Firebase('https://luminous-fire-4957.firebaseio.com/presets/');
 
         presetsRef.on('child_added', function (snapshot) {
             var id = snapshot.name();

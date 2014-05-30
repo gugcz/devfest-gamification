@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>DevFest BreakWall</title>
-    <link rel="stylesheet" href="http://quest.devfest.cz/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://mdevgame.inmite.eu/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/angular.min.js"></script>
-    <script src="http://quest.devfest.cz/js/jquery.min.js"></script>
+    <script src="http://mdevgame.inmite.eu/js/jquery.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/sortable.js"></script>
     <script src='https://cdn.firebase.com/v0/firebase.js'></script>
