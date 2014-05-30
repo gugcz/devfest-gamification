@@ -1,7 +1,7 @@
 <div class="panel panel-blue">
     <div class="panel-heading">
         <?php if($_SESSION['logged_in'] === true){
-            $result = dibi::query("SELECT id, name, location, nice_image, basic_image, congrats_text, unlocked_time FROM achievements
+            $result = dibi::query("SELECT id, name, location, nice_image, basic_image, unlocked_time FROM achievements
                  LEFT JOIN (SELECT achievement_id, unlocked_time FROM log WHERE attendee_id = %i) d ON achievement_id = id
                  ORDER BY unlocked_time DESC, id", $me['attendee_id']);
             ?>

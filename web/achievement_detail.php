@@ -1,5 +1,5 @@
 <?php include("includes/header.php");
-$result = dibi::query("SELECT id, name, location, nice_image, basic_image, congrats_text, unlocked_time, unlocked_count FROM achievements
+$result = dibi::query("SELECT id, name, location, nice_image, basic_image, text, provider_text, unlocked_time, unlocked_count FROM achievements
                  LEFT JOIN (SELECT achievement_id, unlocked_time FROM log WHERE attendee_id = %s) d ON achievement_id = id
                  WHERE id = %i", $me['attendee_id'], $_GET['id']);
 
@@ -27,7 +27,9 @@ if (is_null($achievement['unlocked_time'])) {
                 <div class='col-xs-12 col-sm-7 col-md-7 col-lg-8'>
                     <h1>" . $achievement['name'] . "</h1>
                     <br>
-                    <p>" . $achievement['location'] . "</p>
+                    <p><span class='text-title'>Kde získat:</span><span class='text-offset'>" . $achievement['location'] . "</span></p>
+                    <p><span class='text-title'>Za co:</span><span class='text-offset'>" . $achievement['text'] . "</span></p>
+                    <p><span class='text-title'>Uděluje:</span><span class='text-offset'>" . $achievement['provider_text'] . "</span></p>
                     <p><strong>Tento achievement jste ještě nezískali.</strong></p>
                     <p><strong>Počet získání</strong>: <span class='badge'>" . $achievement['unlocked_count'] . "</span></p>
                 </div>
@@ -39,7 +41,9 @@ if (is_null($achievement['unlocked_time'])) {
                 <div class='col-xs-12 col-sm-7 col-md-7 col-lg-8'>
                     <h1>" . $achievement['name'] . "</h1>
                     <br>
-                    <p>" . $achievement['congrats_text'] . "</p>
+                    <p><span class='text-title'>Kde získat:</span><span class='text-offset'>" . $achievement['location'] . "</span></p>
+                    <p><span class='text-title'>Za co:</span><span class='text-offset'>" . $achievement['text'] . "</span></p>
+                    <p><span class='text-title'>Uděluje:</span><span class='text-offset'>" . $achievement['provider_text'] . "</span></p>
                     <p><strong>Čas získání</strong>: <span class='badge'>" . $achievement['unlocked_time'] . "</span></p>
                     <p><strong>Počet získání</strong>: <span class='badge'>" . $achievement['unlocked_count'] . "</span></p>
                 </div>

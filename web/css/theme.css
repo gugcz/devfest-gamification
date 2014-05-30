@@ -322,3 +322,12 @@ footer .copyright {
     font-size: 12px;
     z-index: 1050;
   }
+
+  .text-offset {
+    display: block;
+    margin-left: 20px;
+  }
+  .text-title {
+    font-style: italic;
+    font-weight: bold;
+  }
