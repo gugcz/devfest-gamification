@@ -7,7 +7,7 @@ else
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DevFest Praha 2013 - Partneri</title>
+    <title>mDevCamp 2014 - Partneri</title>
     <!-- Bootstrap core CSS -->
     <link href="http://quest.devfest.cz/css/bootstrap.css" rel="stylesheet">
     <!-- Bootstrap theme -->
