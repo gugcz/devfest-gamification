@@ -218,4 +218,4 @@ pip-log.txt
 ## Custom
 #############
 
-web/db_config.php
+db_config.php
