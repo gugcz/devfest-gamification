@@ -14,10 +14,10 @@ if(isset($_POST['content'])){
     $content = $_POST['content'];
 } else {
     $content = "array(
-\"gplus_id\" => \"100156589101321820776\",
+\"gplus_id\" => \"102751345660146384940\",
 \"achievement_id\" => 2,
 \"password\" => \"3141\",
-\"org_email\" => \"jirka@korejtko.cz\"
+\"org_email\" => \"test@gug.cz\"
 )";
 }
 ?><html>
@@ -26,16 +26,6 @@ if(isset($_POST['content'])){
 </head>
 <body>
 <h1>CDH API Test Interface</h1>
-Test IDs:<br>
-Jirka Korejtko: 102938374256233421705<br>
-David Vávra: 100156589101321820776<br>
-Larry Page: 106189723444098348646<br>
-Daniel Franc: 114523676440083927755<br>
-Milan Kacálek: 117544014397520627186<br>
-Jirka Pénzeš: 103463398899682658670<br>
-Tomáš Jukin: 104479307512579553448<br>
-Pavel Vybíral: 106453391606524616170<br>
-Jana Moudrá: 115898582817676935843<br>
 
 <a href="test.php?clear">Clear Database!</a>
 <h2>Request</h2>

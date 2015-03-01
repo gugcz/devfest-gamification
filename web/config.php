@@ -8,15 +8,7 @@
  */
 session_start();
 require_once("libs/dibi.min.php");
-
-dibi::connect(array(
-    'driver' => 'mysql',
-    'host' => 'localhost',
-    'username' => 'gamedevfest',
-    'password' => 'qNXLLjQ692mmLNrr',
-    'database' => 'gamedevfest',
-    'charset' => 'utf8',
-));
+require_once("db_config.php");
 
 //// Nacteni nastaveni z databaze
 $result = dibi::query('SELECT * FROM settings');
