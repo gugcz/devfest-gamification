@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-// Please, fill you database connection details here
+// Please, fill your database connection details here
 
 dibi::connect(array(
     'driver' => 'mysql',
